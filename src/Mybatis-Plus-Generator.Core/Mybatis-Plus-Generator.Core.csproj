@@ -7,4 +7,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mybatis-Plus-Generator.Definition\Mybatis-Plus-Generator.Definition.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<IKVMReference Include="..\jar\mybatis-plus-generator-3.5.3.1.jar" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="IKVM" Version="8.4.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Extensions\" />
+	</ItemGroup>
 </Project>
