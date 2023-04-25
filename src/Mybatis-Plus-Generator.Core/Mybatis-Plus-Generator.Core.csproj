@@ -18,8 +18,4 @@
 	<ItemGroup>
 	  <PackageReference Include="IKVM" Version="8.4.5" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Extensions\" />
-	</ItemGroup>
 </Project>
