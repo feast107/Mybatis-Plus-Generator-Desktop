@@ -5,17 +5,23 @@ namespace Mybatis_Plus_Generator.Core.Extensions
 {
     public static class MyBatisConfigExtension
     {
-        private static readonly List<string> BuilderBaseMethods;
-
-        static MyBatisConfigExtension()
+        public static Dictionary<string, List<MethodInfo>> ExportBuilderFunc<T>() where T : IConfigBuilder
         {
-            BuilderBaseMethods = typeof(java.lang.Object).GetMethods().Select(x => x.Name).ToList();
-            BuilderBaseMethods.AddRange(typeof(IConfigBuilder).GetMethods().Select(x => x.Name).ToList());
-        }
-
-        public static List<MethodInfo> ExportFunc<T>() where T : IConfigBuilder
-        {
-            return typeof(T).GetMethods().Where(x=>x.ReturnType == typeof(T)).ToList();
+            return typeof(T)
+                .GetMethods()
+                .Where(x => x.ReturnType == typeof(T))
+                .Aggregate(new Dictionary<string, List<MethodInfo>>(), (d, c) =>
+                {
+                    if (d.TryGetValue(c.Name, out var ms))
+                    {
+                        ms.Add(c);
+                    }
+                    else
+                    {
+                        d[c.Name] = new List<MethodInfo>() { c };
+                    }
+                    return d;
+                });
         }
     }
 }
