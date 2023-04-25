@@ -5,9 +5,14 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator", "Mybatis-Plus-Generator\Mybatis-Plus-Generator.csproj", "{342A20F8-6F02-4010-AC5E-923648519D86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mybatis-Plus-Generator.Core", "Mybatis-Plus-Generator.Core\Mybatis-Plus-Generator.Core.csproj", "{4EE3793D-C697-40C1-B9CB-60757BAC4AAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator.Core", "Mybatis-Plus-Generator.Core\Mybatis-Plus-Generator.Core.csproj", "{4EE3793D-C697-40C1-B9CB-60757BAC4AAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mybatis-Plus-Generator.Definition", "Mybatis-Plus-Generator.Definition\Mybatis-Plus-Generator.Definition.csproj", "{4DF07664-40DE-4A36-9ED8-13B2FD930A07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator.Definition", "Mybatis-Plus-Generator.Definition\Mybatis-Plus-Generator.Definition.csproj", "{4DF07664-40DE-4A36-9ED8-13B2FD930A07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jar", "jar", "{72E5FF53-FC33-4CF9-A42F-73907B1B02BD}"
+	ProjectSection(SolutionItems) = preProject
+		jar\mybatis-plus-generator-3.5.3.1.jar = jar\mybatis-plus-generator-3.5.3.1.jar
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
