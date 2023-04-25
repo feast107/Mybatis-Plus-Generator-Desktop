@@ -14,9 +14,5 @@ namespace Mybatis_Plus_Generator
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            new Generator().Generate();
-        }
     }
 }
