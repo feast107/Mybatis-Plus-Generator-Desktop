@@ -21,6 +21,10 @@ namespace Mybatis_Plus_Generator.Visuals.Controls
     /// </summary>
     public partial class SimpleDialog : UserControl
     {
+        public static async Task<object?> Show(string content, string host)
+        {
+            return await DialogHost.Show(new SimpleDialog(content), host);
+        }
         public SimpleDialog(string text)
         {
             InitializeComponent();
