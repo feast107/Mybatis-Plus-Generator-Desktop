@@ -7,7 +7,7 @@ namespace Mybatis_Plus_Generator.Core.Extensions
     public static class ServiceExtension
     {
         public static IServiceCollection AddDefaultService(this IServiceCollection collection) 
-            => collection.AddSingleton<IConfigureService, ConfigureService>()
-                .AddSingleton<ITemplateService,TemplateService>();
+            => collection.AddSingleton<ITemplateService, TemplateService>()
+                .AddSingleton(typeof(IConfigureService),typeof(ConfigureService));
     }
 }
