@@ -40,6 +40,14 @@ namespace Mybatis_Plus_Generator.Core.Services
             {
                 TemplateInfo = template,
                 ConfigName = name,
+                ConfigItems = template.Fields.Aggregate(new ObservableCollection<ConfigItemInfo>(), (o, e) =>
+                {
+                    o.Add(new ConfigItemInfo()
+                    {
+                        TemplateInfo = e,
+                    });
+                    return o;
+                })
             };
         }
     }
