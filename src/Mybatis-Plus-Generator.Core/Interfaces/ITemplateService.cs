@@ -8,6 +8,7 @@ namespace Mybatis_Plus_Generator.Core.Interfaces
     /// </summary>
     public interface ITemplateService
     {
-        ObservableCollection<TemplateInfo> ConfigTemplates { get; }
+        TemplateInfo PrimaryTemplate { get; }
+        ObservableCollection<TemplateInfo> AdditionalTemplates { get; }
     }
 }
