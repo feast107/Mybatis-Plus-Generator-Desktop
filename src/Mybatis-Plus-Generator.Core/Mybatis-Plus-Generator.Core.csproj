@@ -17,5 +17,6 @@
 
 	<ItemGroup>
 	  <PackageReference Include="IKVM" Version="8.4.5" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 	</ItemGroup>
 </Project>
