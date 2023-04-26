@@ -26,9 +26,7 @@
                         </TextBox.Text>
                     </TextBox>
                 </DataTemplate>
-
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Text="{Binding }"></TextBlock>
     </Grid>
 </UserControl>
