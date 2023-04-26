@@ -1,24 +1,46 @@
-﻿using com.baomidou.mybatisplus.generator.config.builder;
-using Mybatis_Plus_Generator.Core.Extensions;
+﻿using System.Collections.ObjectModel;
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
-using System.Collections.ObjectModel;
 
 namespace Mybatis_Plus_Generator.Core.Services
 {
     internal class ConfigureService : IConfigureService
     {
-        private Dictionary<string,Func<ConfigBuilder>> configBuilders = new();
-        public ConfigInfo DataSourceConfig { get; }
-
-        public ObservableCollection<ConfigInfo> GetConfigures<T>(string field) where T : ConfigBuilder
+        private readonly ITemplateService templateService;
+        public ConfigureService(ITemplateService templateService)
         {
-            throw new NotImplementedException();
+            this.templateService = templateService;
         }
 
-        public List<Type> GetConfiguresTypes()
+        public ObservableCollection<ConfigRecord> Records { get; } = new ();
+
+        public ConfigRecord CreateRecord(string name)
         {
-            return ConfigExporter.ExportConfigs();
+            var record = Records.FirstOrDefault(x => x.ConfigName == name);
+            if(record != null)
+            {
+                return record;
+            }
+            var pt = templateService.PrimaryTemplate;
+            var tmp = Instantiate(pt, pt.Name ?? "");
+            record = new ConfigRecord()
+            {
+                ConfigName = name,
+                FixedConfig = tmp,
+                Configs = { tmp }
+            };
+            
+            Records.Add(record);
+            return record;
+        }
+
+        public ConfigInfo Instantiate(TemplateInfo template, string name)
+        {
+            return new ConfigInfo()
+            {
+                TemplateInfo = template,
+                ConfigName = name,
+            };
         }
     }
 }
