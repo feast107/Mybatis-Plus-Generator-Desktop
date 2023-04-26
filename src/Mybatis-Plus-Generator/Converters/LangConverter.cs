@@ -15,15 +15,18 @@ namespace Mybatis_Plus_Generator.Converters
                     return Langs.Lang.ResourceManager.GetString(key) ?? key;
                 }
             }
-            catch { 
+            catch
+            {
                 //
             }
-            return string.Empty;
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException();
         }
+
+
     }
 }
