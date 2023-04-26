@@ -13,10 +13,7 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel Margin="16">
-            <TextBlock Text="{Binding .,
-RelativeSource={RelativeSource Self},
-Converter={StaticResource Lang},
-ConverterParameter={StaticResource Title}}">
+            <TextBlock Text="{Binding .,RelativeSource={RelativeSource Self},Converter={StaticResource Lang},ConverterParameter={StaticResource Title}}">
             </TextBlock>
             <TextBox Name="Title" 
                      Margin="0,8,0,0"
