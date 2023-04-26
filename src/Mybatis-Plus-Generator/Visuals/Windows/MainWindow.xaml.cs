@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Mybatis_Plus_Generator.Core.Extensions;
+using Mybatis_Plus_Generator.ViewModels;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 using System.Windows;
-using java.util;
-using Mybatis_Plus_Generator.Core;
-using Mybatis_Plus_Generator.Core.Extensions;
-using Mybatis_Plus_Generator.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Mybatis_Plus_Generator.Core.Interfaces;
 
 namespace Mybatis_Plus_Generator.Visuals.Windows
 {
@@ -18,21 +18,13 @@ namespace Mybatis_Plus_Generator.Visuals.Windows
         public MainWindow()
         {
             InitializeComponent();
-            var dataContext = new ExpandoObject();
-            dynamic obj = dataContext;
-            var dc = new ObservableCollection<ConfigViewModel>();
-            foreach (var pair in ConfigExporter.ExportBuildersFunc())
-            {
-                dc.Add(new ConfigViewModel()
-                {
-                    ConfigName = pair.Key,
-                    Configs = pair.Value.Aggregate(new Dictionary<string, dynamic>(), (o, c) =>
-                    {
-                        o.Add(c.Key, new ExpandoObject());
-                        return o;
-                    })
-                });
-            }
+            Core.Core.Services.AddDefaultService();
+            Core.Core.Services.AddScoped<ConfigPageViewModel>();
+            Core.Core.Build();
+            var dc = new ConfigPageViewModel();
+            ConfigExporter.ExportConfigs();
+            var templateService = Core.Core.Provider.GetRequiredService<ITemplateService>();
+            dc.Templates = templateService.ConfigTemplates;
             this.DataContext = dc;
         }
     }
