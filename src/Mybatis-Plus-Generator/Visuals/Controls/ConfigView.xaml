@@ -4,10 +4,31 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
+      xmlns:abs="clr-namespace:Mybatis_Plus_Generator.Definition.Abstractions;assembly=Mybatis-Plus-Generator.Definition"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}">
+      d:DataContext="{d:DesignInstance abs:ConfigInfo}">
     <Grid>
-        
+        <ListBox ItemsSource="{Binding ConfigItems}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.HelperText="Helper text"
+                    materialDesign:HintAssist.Hint="Text (validated)"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                        <TextBox.Text>
+                            <Binding
+                            Path="TemplateInfo.FieldName"
+                            UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="{Binding }"></TextBlock>
     </Grid>
 </UserControl>
