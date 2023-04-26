@@ -61,6 +61,24 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 无法删除固定配置 的本地化字符串。
+        /// </summary>
+        public static string Can_not_delete_fixed_config {
+            get {
+                return ResourceManager.GetString("Can not delete fixed config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 配置名称已存在 的本地化字符串。
+        /// </summary>
+        public static string Config_name_exists {
+            get {
+                return ResourceManager.GetString("Config name exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 配置名称 的本地化字符串。
         /// </summary>
         public static string ConfigName {
@@ -120,6 +138,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string PackageConfig {
             get {
                 return ResourceManager.GetString("PackageConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请提供配置名称 的本地化字符串。
+        /// </summary>
+        public static string Please_provide_config_name {
+            get {
+                return ResourceManager.GetString("Please provide config name", resourceCulture);
             }
         }
         
