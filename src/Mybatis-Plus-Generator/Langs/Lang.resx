@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Can not delete fixed config" xml:space="preserve">
+    <value>无法删除固定配置</value>
+  </data>
+  <data name="Config name exists" xml:space="preserve">
+    <value>配置名称已存在</value>
+  </data>
   <data name="ConfigName" xml:space="preserve">
     <value>配置名称</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="PackageConfig" xml:space="preserve">
     <value>包配置</value>
+  </data>
+  <data name="Please provide config name" xml:space="preserve">
+    <value>请提供配置名称</value>
   </data>
   <data name="StrategyConfig" xml:space="preserve">
     <value>策略配置</value>
