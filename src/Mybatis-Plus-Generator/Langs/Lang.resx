@@ -120,10 +120,25 @@
   <data name="DataSourceConfig" xml:space="preserve">
     <value>数据源配置</value>
   </data>
+  <data name="GlobalConfig" xml:space="preserve">
+    <value>全局配置</value>
+  </data>
+  <data name="InjectionConfig" xml:space="preserve">
+    <value>注入配置</value>
+  </data>
   <data name="LangComment" xml:space="preserve">
     <value>查找 {0} 的本地化内容</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>中文</value>
+  </data>
+  <data name="PackageConfig" xml:space="preserve">
+    <value>包配置</value>
+  </data>
+  <data name="StrategyConfig" xml:space="preserve">
+    <value>策略配置</value>
+  </data>
+  <data name="TemplateConfig" xml:space="preserve">
+    <value>模板配置</value>
   </data>
 </root>
