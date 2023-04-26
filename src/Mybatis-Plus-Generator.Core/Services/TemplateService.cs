@@ -17,7 +17,7 @@ namespace Mybatis_Plus_Generator.Core.Services
             {
                 ConfigType = primaryConfig,
                 Name = primaryConfig.Name,
-                Fields = GetTemplateInfo(primaryConfig)
+                Fields = GetTemplateInfo(primaryConfig.GetNestedType(Builder)!)
             };
 
             AdditionalTemplates = typeof(AutoGenerator)
