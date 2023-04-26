@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Mybatis_Plus_Generator.ViewModels
 {
-    public partial class ConfigTabViewModel : ObservableObject
+    public partial class ConfigTabViewModel : ConfigRecord
     {
         /// <summary>
         /// 配置类型
