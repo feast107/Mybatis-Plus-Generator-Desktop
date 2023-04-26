@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Windows.Media;
+using MaterialDesignColors;
 using MaterialDesignColors.ColorManipulation;
+using MaterialDesignThemes.Wpf;
 using Mybatis_Plus_Generator.Converters;
 
 namespace Mybatis_Plus_Generator.Extension
 {
-    public static class ColorAssist
+    public static class ColorExtension
     {
+        public static void SetTheme(this Color color)
+        {
+            var helper = new PaletteHelper();
+            var theme = helper.GetTheme();
+            theme.PrimaryLight = new ColorPair(color.Lighten());
+            theme.PrimaryMid = new ColorPair(color);
+            theme.PrimaryDark = new ColorPair(color.Darken());
+            helper.SetTheme(theme);
+        }
+
         /// <summary>
         /// The relative brightness of any point in a color space, normalized to 0 for darkest black and 1 for lightest white
         /// For the sRGB color space, the relative luminance of a color is defined as L = 0.2126 * R + 0.7152 * G + 0.0722 * B where R, G and B are defined as:
