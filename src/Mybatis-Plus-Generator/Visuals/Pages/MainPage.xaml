@@ -8,8 +8,10 @@
       xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:pages="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
+      xmlns:ws="clr-namespace:Mybatis_Plus_Generator.Visuals.Windows"
+      xmlns:system="clr-namespace:System;assembly=System.Runtime"
       mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}"
-        Title="MainPage" >
+        Title="MainPage" x:Name="Page">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -46,38 +48,69 @@
 
         </ToolBarTray>
         <Grid Grid.Row="1">
-            <TabControl Grid.Row="0" ItemsSource="{Binding Configs}" 
+            <TabControl Grid.Row="0"  ItemsSource="{Binding Current.Configs}" 
+                        MinWidth="100"
                     TabStripPlacement="Left"
                     Width="Auto" md:ColorZoneAssist.Mode="PrimaryLight" 
                     Style="{StaticResource MaterialDesignFilledTabControl}">
                 <TabControl.ContextMenu>
-                    <ContextMenu  ItemsSource="{Binding Templates}">
+                    <ContextMenu ItemsSource="{Binding Templates}" >
+                        <ContextMenu.ItemContainerStyle>
+                            <Style TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
+                                <Setter Property="Command" Value="{Binding DataContext.SelectTemplateCommand ,RelativeSource={RelativeSource AncestorType=pages:MainPage} }" />
+                                <Setter Property="CommandParameter" Value="{Binding .}"></Setter>
+                            </Style>
+                        </ContextMenu.ItemContainerStyle>
                         <ContextMenu.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name ,Converter={StaticResource Lang}}" >
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectMenuCommand ,RelativeSource={RelativeSource AncestorType=pages:MainPage}}" CommandParameter="{Binding .}"></b:InvokeCommandAction>
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                </TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name ,Converter={StaticResource Lang}}" />
                             </DataTemplate>
                         </ContextMenu.ItemTemplate>
                     </ContextMenu>
                 </TabControl.ContextMenu>
 
-
+                
+                <TabControl.ItemContainerStyle>
+                    <Style TargetType="TabItem" BasedOn="{StaticResource MaterialDesignTabItem}">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="Padding" Value="0"></Setter>
+                    </Style>
+                </TabControl.ItemContainerStyle>
                 <TabControl.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="Auto"
-                        Orientation="Horizontal">
-                            <StackPanel.ContextMenu>
-                                <ContextMenu>
-                                </ContextMenu>
-                            </StackPanel.ContextMenu>
-                            <TextBlock
-                            Text="{Binding ConfigType,Converter={StaticResource Lang}}" />
-                        </StackPanel>
+                        <Grid >
+                            <Border Width="100">
+                            </Border>
+                                <StackPanel HorizontalAlignment="Center" Width="Auto" Orientation="Horizontal">
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                                <TextBlock HorizontalAlignment="Center" 
+                                           Text="{Binding ConfigName,Converter={StaticResource Lang}}" />
+                                </StackPanel>
+                            <Button x:Name="CloseButton" 
+                                    Visibility="Collapsed" 
+                                    Command="{Binding DataContext.RemoveConfigCommand, RelativeSource={RelativeSource AncestorType=pages:MainPage}}"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalAlignment="Right" 
+                                    Width="16" Height="16" Margin="0,0,4,0">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <md:PackIcon
+                                            Kind="Close"
+                                            Foreground="Red"
+                                            Background="Transparent" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=TabItem},Path=IsMouseOver}"  Value="True">
+                                <Setter TargetName="CloseButton" Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
                     </DataTemplate>
                 </TabControl.ItemTemplate>
                 <TabControl.ContentTemplate>
@@ -86,6 +119,42 @@
                     </DataTemplate>
                 </TabControl.ContentTemplate>
             </TabControl>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.RowSpan="2">
+            <md:DialogHost Margin="0" Identifier="NewConfig" Style="{StaticResource MaterialDesignEmbeddedDialogHost}">
+                <md:DialogHost.DialogContent>
+                    <StackPanel Margin="16">
+                        <TextBlock Text="Add a new animal." />
+
+                        <TextBox x:Name="AnimalTextBox"
+                       Margin="0,8,0,0"
+                       HorizontalAlignment="Stretch" />
+
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button Margin="0,8,8,0"
+                        Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                        Content="ACCEPT"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                                <Button.CommandParameter>
+                                    <system:Boolean>True</system:Boolean>
+                                </Button.CommandParameter>
+                            </Button>
+                            <Button Margin="0,8,8,0"
+                        Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                        Content="CANCEL"
+                        IsCancel="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                                <Button.CommandParameter>
+                                    <system:Boolean>False</system:Boolean>
+                                </Button.CommandParameter>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </md:DialogHost.DialogContent>
+
+            </md:DialogHost>
         </Grid>
 
     </Grid>
