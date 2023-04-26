@@ -85,7 +85,7 @@
                                     <ContextMenu>
                                     </ContextMenu>
                                 </StackPanel.ContextMenu>
-                                <TextBlock HorizontalAlignment="Center" 
+                                <TextBlock HorizontalAlignment="Center" Margin="20,0"
                                            Text="{Binding ConfigName,Converter={StaticResource Lang}}" />
                                 </StackPanel>
                             <Button x:Name="CloseButton" 
@@ -113,7 +113,7 @@
                 </TabControl.ItemTemplate>
                 <TabControl.ContentTemplate>
                     <DataTemplate>
-                        <co:ConfigView></co:ConfigView>
+                        <co:ConfigView ></co:ConfigView>
                     </DataTemplate>
                 </TabControl.ContentTemplate>
             </TabControl>
