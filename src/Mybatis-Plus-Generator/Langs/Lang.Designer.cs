@@ -61,6 +61,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 配置名称 的本地化字符串。
+        /// </summary>
+        public static string ConfigName {
+            get {
+                return ResourceManager.GetString("ConfigName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数据源配置 的本地化字符串。
         /// </summary>
         public static string DataSourceConfig {
@@ -88,20 +97,20 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
-        ///   查找类似 查找 {0} 的本地化内容 的本地化字符串。
-        /// </summary>
-        public static string LangComment {
-            get {
-                return ResourceManager.GetString("LangComment", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 中文 的本地化字符串。
         /// </summary>
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 好的 的本地化字符串。
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
             }
         }
         
