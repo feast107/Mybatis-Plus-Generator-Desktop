@@ -5,10 +5,13 @@ using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Extensions.DependencyInjection;
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Visuals.Controls;
+using MaterialDesignColors;
+using Mybatis_Plus_Generator.Extension;
 
 namespace Mybatis_Plus_Generator.Visuals.Windows
 {
@@ -34,6 +37,13 @@ namespace Mybatis_Plus_Generator.Visuals.Windows
             }
             dc.Templates = templateService.AdditionalTemplates;
             Page.DataContext = dc;
+
+            ITheme theme = new PaletteHelper().GetTheme();
+            Color color = Color.FromRgb(12,174,135);
+            theme.PrimaryLight = new ColorPair(color.Lighten());
+            theme.PrimaryMid = new ColorPair(color);
+            theme.PrimaryDark = new ColorPair(color.Darken());
+            new PaletteHelper().SetTheme(theme);
         }
     }
 }
