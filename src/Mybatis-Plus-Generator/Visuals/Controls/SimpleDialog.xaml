@@ -13,15 +13,11 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-            <TextBlock Margin="12" TextWrapping="Wrap" Name="Text" Text="{Binding Tag,
-RelativeSource={RelativeSource Self},
-Converter={StaticResource Lang}}"></TextBlock>
+            <TextBlock Margin="16,16,16,0" TextWrapping="Wrap" Name="Text" 
+                       Text="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Lang}}" />
             <Button Margin="16"
                     Command="{x:Static md:DialogHost.CloseDialogCommand}"
-                    Content="{Binding .,
-RelativeSource={RelativeSource Self},
-Converter={StaticResource Lang},
-ConverterParameter={StaticResource Confirm}}"
+                    Content="{Binding .,RelativeSource={RelativeSource Self},Converter={StaticResource Lang},ConverterParameter={StaticResource Confirm}}"
                     IsCancel="True"
                     Style="{StaticResource MaterialDesignFlatButton}">
                 <Button.CommandParameter>
