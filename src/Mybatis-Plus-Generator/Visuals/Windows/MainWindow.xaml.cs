@@ -38,12 +38,7 @@ namespace Mybatis_Plus_Generator.Visuals.Windows
             dc.Templates = templateService.AdditionalTemplates;
             Page.DataContext = dc;
 
-            ITheme theme = new PaletteHelper().GetTheme();
-            Color color = Color.FromRgb(12,174,135);
-            theme.PrimaryLight = new ColorPair(color.Lighten());
-            theme.PrimaryMid = new ColorPair(color);
-            theme.PrimaryDark = new ColorPair(color.Darken());
-            new PaletteHelper().SetTheme(theme);
+            Color.FromRgb(12, 174, 135).SetTheme();
         }
     }
 }
