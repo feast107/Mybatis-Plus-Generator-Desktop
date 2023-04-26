@@ -70,6 +70,24 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 全局配置 的本地化字符串。
+        /// </summary>
+        public static string GlobalConfig {
+            get {
+                return ResourceManager.GetString("GlobalConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注入配置 的本地化字符串。
+        /// </summary>
+        public static string InjectionConfig {
+            get {
+                return ResourceManager.GetString("InjectionConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 查找 {0} 的本地化内容 的本地化字符串。
         /// </summary>
         public static string LangComment {
@@ -84,6 +102,33 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 包配置 的本地化字符串。
+        /// </summary>
+        public static string PackageConfig {
+            get {
+                return ResourceManager.GetString("PackageConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 策略配置 的本地化字符串。
+        /// </summary>
+        public static string StrategyConfig {
+            get {
+                return ResourceManager.GetString("StrategyConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 模板配置 的本地化字符串。
+        /// </summary>
+        public static string TemplateConfig {
+            get {
+                return ResourceManager.GetString("TemplateConfig", resourceCulture);
             }
         }
     }
