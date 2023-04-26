@@ -5,8 +5,10 @@ using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 using System.Windows;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Extensions.DependencyInjection;
 using Mybatis_Plus_Generator.Core.Interfaces;
+using Mybatis_Plus_Generator.Visuals.Controls;
 
 namespace Mybatis_Plus_Generator.Visuals.Windows
 {
@@ -19,13 +21,19 @@ namespace Mybatis_Plus_Generator.Visuals.Windows
         {
             InitializeComponent();
             Core.Core.Services.AddDefaultService();
-            Core.Core.Services.AddScoped<ConfigPageViewModel>();
+            Core.Core.Services.AddTransient<ConfigPageViewModel>();
             Core.Core.Build();
-            var dc = new ConfigPageViewModel();
+            var dc = Core.Core.Provider.GetRequiredService<ConfigPageViewModel>();
             ConfigExporter.ExportConfigs();
             var templateService = Core.Core.Provider.GetRequiredService<ITemplateService>();
-            dc.Templates = templateService.ConfigTemplates;
-            this.DataContext = dc;
+            var configureService = Core.Core.Provider.GetRequiredService<IConfigureService>();
+            dc.Records = configureService.Records;
+            if (configureService.Records.Count == 0)
+            {
+                dc.Current = configureService.CreateRecord("默认配置");
+            }
+            dc.Templates = templateService.AdditionalTemplates;
+            Page.DataContext = dc;
         }
     }
 }
