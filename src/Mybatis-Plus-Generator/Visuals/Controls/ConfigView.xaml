@@ -5,26 +5,65 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
       xmlns:abs="clr-namespace:Mybatis_Plus_Generator.Definition.Abstractions;assembly=Mybatis-Plus-Generator.Definition"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance abs:ConfigInfo}">
+      d:DataContext="{d:DesignInstance vm:ConfigInfoViewModel}">
+    <UserControl.Resources>
+        <Style x:Key="RightButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Margin" Value="12,0" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <ListBox ItemsSource="{Binding ConfigItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBox
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.HelperText="Helper text"
-                    materialDesign:HintAssist.Hint="Text (validated)"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}">
-                        <TextBox.Text>
-                            <Binding
-                            Path="TemplateInfo.FieldName"
-                            UpdateSourceTrigger="PropertyChanged">
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                    <Border
+                        Padding="0,0,32,0"
+                        Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}">
+                        <Grid 
+                              Margin="0,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Margin="0,0,10,0" >
+                                <ToggleButton Margin="4,0"  Width="40"
+                                              IsChecked="{Binding IsEnable}"
+                                              Style="{StaticResource MaterialDesignSwitchLightToggleButton}"
+                                              ToolTip="MaterialDesignSwitchLightToggleButton" />
+                            </Grid>
+                            <TextBox 
+                                Grid.Column="1" IsEnabled="{Binding IsEnable}"
+                                VerticalAlignment="Top" Text="{Binding Value}" 
+                                md:HintAssist.Hint="{Binding TemplateInfo.FieldName}"
+                                Style="{StaticResource MaterialDesignFilledTextBox}">
+                            </TextBox>
+                            <Grid Grid.Column="2">
+                                <Button  
+                                    Visibility="{Binding Condition,Converter={StaticResource ShowAddConverter}}"
+                                    Style="{StaticResource RightButton}"
+                                    Command="{Binding DataContext.AddConfigCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding TemplateInfo}"
+                                    ToolTip="MaterialDesignFloatingActionMiniLightButton"  >
+                                        <md:PackIcon  Kind="Add"/>
+                                </Button>
+                                <Button 
+                                    Visibility="{Binding Condition,Converter={StaticResource ShowRemoveConverter}}"
+                                    Style="{StaticResource RightButton}"
+                                    Command="{Binding DataContext.RemoveConfigCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding .}"
+                                    ToolTip="MaterialDesignFloatingActionMiniLightButton" >
+                                        <md:PackIcon  Kind="Remove"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
