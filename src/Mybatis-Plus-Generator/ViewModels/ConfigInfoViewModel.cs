@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using CommunityToolkit.Mvvm.Input;
-using MaterialDesignThemes.Wpf;
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
-using Mybatis_Plus_Generator.Langs;
-using Mybatis_Plus_Generator.Visuals.Controls;
 
 namespace Mybatis_Plus_Generator.ViewModels
 {
@@ -20,6 +13,13 @@ namespace Mybatis_Plus_Generator.ViewModels
         {
             this.configureService = configureService;
         }
+
+        public bool IgnoreCtor => ignoreCtor ??= TemplateInfo!
+            .Fields
+            .Where(x => x.IsCtor)
+            .All(x => x.Methods.All(c => c.GetParameters().Length == 0));
+
+        private bool? ignoreCtor;
 
         [RelayCommand]
         void AddConfig(TemplateItemInfo templateItem)
