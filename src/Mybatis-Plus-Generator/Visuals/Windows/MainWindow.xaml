@@ -6,6 +6,6 @@
         xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
         xmlns:p="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}">
+        Title="MainWindow" Height="450" Width="800" d:DataContext="{d:DesignInstance vm:ConfigRecordViewModel}">
     <p:MainPage x:Name="Page" ></p:MainPage>
 </Window>
