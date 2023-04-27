@@ -10,6 +10,8 @@
              d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.Resources>
         <system:String x:Key="Title">ConfigName</system:String>
+        <system:String x:Key="Accept">Accept</system:String>
+        <system:String x:Key="Cancel">Cancel</system:String>
     </UserControl.Resources>
     <Grid>
         <StackPanel Margin="16">
@@ -21,7 +23,7 @@
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button Margin="0,8,8,0"
                         Command="{x:Static md:DialogHost.CloseDialogCommand}"
-                        Content="ACCEPT"
+                        Content="{Binding .,RelativeSource={RelativeSource Self},Converter={StaticResource Lang},ConverterParameter={StaticResource Accept}}"
                         IsDefault="True"
                         Style="{StaticResource MaterialDesignFlatButton}">
                     <Button.CommandParameter>
@@ -31,7 +33,7 @@
 
                 <Button Margin="0,8,8,0"
                         Command="{x:Static md:DialogHost.CloseDialogCommand}"
-                        Content="CANCEL"
+                        Content="{Binding .,RelativeSource={RelativeSource Self},Converter={StaticResource Lang},ConverterParameter={StaticResource Cancel}}"
                         IsCancel="True"
                         Style="{StaticResource MaterialDesignFlatButton}">
                     <Button.CommandParameter>
