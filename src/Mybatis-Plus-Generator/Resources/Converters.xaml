@@ -5,5 +5,8 @@
     <co:SwitchAddConverter x:Key="ShowAddConverter" />
     <co:SwitchRemoveConverter x:Key="ShowRemoveConverter" />
     <co:SwitchNoneConverter x:Key="NotShowConverter" />
-    <co:IndexConverter x:Key="IndexConverter"></co:IndexConverter>
+    <co:IndexConverter x:Key="IndexConverter" />
+    <co:Bool2VisibilityCollapsedConverter x:Key="Bool2VisibilityCollapsedConverter" />
+    <co:InverseBool2VisibilityCollapsedConverter x:Key="InverseBool2VisibilityCollapsedConverter" />
+
 </ResourceDictionary>
