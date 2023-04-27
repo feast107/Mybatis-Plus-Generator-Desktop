@@ -70,6 +70,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 追加连接字符串 的本地化字符串。
+        /// </summary>
+        public static string addConnectionProperty {
+            get {
+                return ResourceManager.GetString("addConnectionProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 无法删除固定配置 的本地化字符串。
         /// </summary>
         public static string Can_not_delete_fixed_config {
@@ -106,11 +115,29 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 数据库查询类 的本地化字符串。
+        /// </summary>
+        public static string databaseQueryClass {
+            get {
+                return ResourceManager.GetString("databaseQueryClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数据源配置 的本地化字符串。
         /// </summary>
         public static string DataSourceConfig {
             get {
                 return ResourceManager.GetString("DataSourceConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 查询字符串 的本地化字符串。
+        /// </summary>
+        public static string dbQuery {
+            get {
+                return ResourceManager.GetString("dbQuery", resourceCulture);
             }
         }
         
@@ -183,6 +210,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string TemplateConfig {
             get {
                 return ResourceManager.GetString("TemplateConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 类型转换 的本地化字符串。
+        /// </summary>
+        public static string typeConvert {
+            get {
+                return ResourceManager.GetString("typeConvert", resourceCulture);
             }
         }
     }
