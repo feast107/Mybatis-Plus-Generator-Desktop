@@ -33,7 +33,7 @@ namespace Mybatis_Plus_Generator.Core.Services
                         { 
                             ConfigType = t,
                             Name = t.Name,
-                            Fields = GetTemplateInfo(builder)
+                            Fields = GetTemplateInfo(builder),
                         });
                         return c;
                     });
@@ -46,6 +46,7 @@ namespace Mybatis_Plus_Generator.Core.Services
             return type
                 .GetMethods()
                 .Where(m => m.ReturnType == type)
+                .OrderBy(x => x.Name)
                 .Aggregate(new ObservableCollection<TemplateItemInfo>(),
                     (d, m) =>
                     {
@@ -58,9 +59,9 @@ namespace Mybatis_Plus_Generator.Core.Services
                         {
                             d.Add(new TemplateItemInfo()
                             {
-                                AllowMultiple = false,
+                                AllowMultiple = m.Name.StartsWith("add"),
                                 FieldName = m.Name,
-                                Methods = { m }
+                                Methods = { m },
                             });
                         }
 
