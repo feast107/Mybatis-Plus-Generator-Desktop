@@ -2,6 +2,7 @@
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
 using System.Collections.ObjectModel;
+using System.Reflection;
 
 namespace Mybatis_Plus_Generator.Core.Services
 {
@@ -12,7 +13,10 @@ namespace Mybatis_Plus_Generator.Core.Services
 
         public TemplateService()
         {
-            var primaryConfig =  typeof(AutoGenerator).GetConstructors()[0].GetParameters()[0].ParameterType;
+            var primaryConfig =  typeof(AutoGenerator)
+                .GetConstructors()[0]
+                .GetParameters()[0]
+                .ParameterType;
             PrimaryTemplate = new TemplateInfo()
             {
                 ConfigType = primaryConfig,
@@ -47,7 +51,7 @@ namespace Mybatis_Plus_Generator.Core.Services
                 .GetMethods()
                 .Where(m => m.ReturnType == type)
                 .OrderBy(x => x.Name)
-                .Aggregate(new ObservableCollection<TemplateItemInfo>(),
+                .Aggregate(new List<TemplateItemInfo>(),
                     (d, m) =>
                     {
                         var cache = d.FirstOrDefault(x => x.FieldName == m.Name);
@@ -66,7 +70,25 @@ namespace Mybatis_Plus_Generator.Core.Services
                         }
 
                         return d;
-                    });
+                    })
+                .Append(type
+                    .GetConstructors()
+                        .Aggregate(new TemplateItemInfo
+                        {
+                            AllowMultiple = false,
+                            FieldName = type.Name,
+                            IsCtor = true,
+                            Methods = {}
+                        }, (o, c) =>
+                        {
+                            o.Methods.Add(c); return o;
+                        }))
+                .OrderBy(x=> !x.IsCtor)
+                .Aggregate(new ObservableCollection<TemplateItemInfo>(), (o, c) =>
+                {
+                    o.Add(c);
+                    return o;
+                });
         }
     }
 }
