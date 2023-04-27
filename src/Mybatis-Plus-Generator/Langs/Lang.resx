@@ -171,4 +171,7 @@
   <data name="typeConvert" xml:space="preserve">
     <value>类型转换</value>
   </data>
+  <data name="typeConvertHandler" xml:space="preserve">
+    <value>类型转换事件</value>
+  </data>
 </root>
