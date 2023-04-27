@@ -1,15 +1,19 @@
-﻿using System.Linq;
-using CommunityToolkit.Mvvm.Input;
-using Mybatis_Plus_Generator.Core.Interfaces;
+﻿using CommunityToolkit.Mvvm.Input;
 using Mybatis_Plus_Generator.Definition.Abstractions;
+using System.Linq;
+using IConfigureService = 
+    Mybatis_Plus_Generator.Core.Interfaces.IConfigureService<
+    Mybatis_Plus_Generator.ViewModels.ConfigRecordViewModel,
+    Mybatis_Plus_Generator.ViewModels.ConfigInfoViewModel,
+    Mybatis_Plus_Generator.ViewModels.ConfigItemInfoViewModel>;
 
 namespace Mybatis_Plus_Generator.ViewModels
 {
-    public partial class ConfigInfoViewModel : ConfigInfo
+    internal partial class ConfigInfoViewModel : ConfigInfo<ConfigItemInfoViewModel>
     {
-        private readonly IConfigureService<ConfigInfoViewModel> configureService;
+        private readonly IConfigureService configureService;
 
-        public ConfigInfoViewModel(IConfigureService<ConfigInfoViewModel> configureService)
+        public ConfigInfoViewModel(IConfigureService configureService)
         {
             this.configureService = configureService;
         }
@@ -18,7 +22,6 @@ namespace Mybatis_Plus_Generator.ViewModels
             .Fields
             .Where(x => x.IsCtor)
             .All(x => x.Methods.All(c => c.GetParameters().Length == 0));
-
         private bool? ignoreCtor;
 
         [RelayCommand]
@@ -28,7 +31,7 @@ namespace Mybatis_Plus_Generator.ViewModels
             {
                 if (ConfigItems[i].TemplateInfo == templateItem)
                 {
-                    ConfigItems.Insert(i + 1, new ConfigItemInfo()
+                    ConfigItems.Insert(i + 1, new ConfigItemInfoViewModel()
                     {
                         TemplateInfo = templateItem,
                         IsGenerated = true
@@ -38,7 +41,7 @@ namespace Mybatis_Plus_Generator.ViewModels
             }
         }
         [RelayCommand]
-        void RemoveConfig(ConfigItemInfo configInfo)
+        void RemoveConfig(ConfigItemInfoViewModel configInfo)
         {
             ConfigItems.Remove(configInfo);
         }
