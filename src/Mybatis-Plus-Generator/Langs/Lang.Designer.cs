@@ -221,5 +221,14 @@ namespace Mybatis_Plus_Generator.Langs {
                 return ResourceManager.GetString("typeConvert", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 类型转换事件 的本地化字符串。
+        /// </summary>
+        public static string typeConvertHandler {
+            get {
+                return ResourceManager.GetString("typeConvertHandler", resourceCulture);
+            }
+        }
     }
 }
