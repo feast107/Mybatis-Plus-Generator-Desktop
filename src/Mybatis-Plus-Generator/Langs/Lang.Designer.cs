@@ -61,11 +61,29 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 确认 的本地化字符串。
+        /// </summary>
+        public static string Accept {
+            get {
+                return ResourceManager.GetString("Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 无法删除固定配置 的本地化字符串。
         /// </summary>
         public static string Can_not_delete_fixed_config {
             get {
                 return ResourceManager.GetString("Can not delete fixed config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 取消 的本地化字符串。
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
