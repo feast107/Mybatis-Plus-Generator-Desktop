@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Mybatis_Plus_Generator.Definition.Abstractions
 {
-    public partial class ConfigInfo : ObservableObject
+    public partial class ConfigInfo<TConfigItemInfo> : ObservableObject where TConfigItemInfo : ConfigItemInfo
     {
         /// <summary>
         /// 关联模板
@@ -12,7 +12,7 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions
         /// <summary>
         /// 配置项
         /// </summary>
-        [ObservableProperty] private ObservableCollection<ConfigItemInfo> configItems = new();
+        [ObservableProperty] private ObservableCollection<TConfigItemInfo> configItems = new();
         /// <summary>
         /// 配置名称
         /// </summary>
