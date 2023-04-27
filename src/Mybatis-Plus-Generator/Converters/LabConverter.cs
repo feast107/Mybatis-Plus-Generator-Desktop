@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Media;
-using MaterialDesignColors.ColorManipulation;
 
 namespace Mybatis_Plus_Generator.Converters
 {
