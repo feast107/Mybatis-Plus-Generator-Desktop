@@ -7,8 +7,7 @@
       xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
       xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
       xmlns:pages="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
-      xmlns:system="clr-namespace:System;assembly=System.Runtime"
-      mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigRecordViewModel}"
+      mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}"
         Title="MainPage" x:Name="Page">
     <Grid>
         <Grid.RowDefinitions>
@@ -48,7 +47,7 @@
         <Grid Grid.Row="1">
             <TabControl Grid.Row="0" SelectedIndex="{Binding Current.Configs.Count,Converter={StaticResource IndexConverter},Mode=OneWay}"  
                         ItemsSource="{Binding Current.Configs}" 
-                        MinWidth="100" TabIndex="{Binding }"
+                        MinWidth="100"
                     TabStripPlacement="Left"
                     Width="Auto" md:ColorZoneAssist.Mode="PrimaryLight" 
                     Style="{DynamicResource MaterialDesignFilledTabControl}">
@@ -82,10 +81,6 @@
                             <Border Width="100">
                             </Border>
                                 <StackPanel HorizontalAlignment="Center" Width="Auto" Orientation="Horizontal">
-                                <StackPanel.ContextMenu>
-                                    <ContextMenu>
-                                    </ContextMenu>
-                                </StackPanel.ContextMenu>
                                 <TextBlock HorizontalAlignment="Center" Margin="20,0"
                                            Text="{Binding ConfigName,Converter={StaticResource Lang}}" />
                                 </StackPanel>
