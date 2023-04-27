@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 
 namespace Mybatis_Plus_Generator.Definition.Abstractions
 {
@@ -30,7 +28,6 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions
         [ObservableProperty] private bool isEnable = true;
 
         [ObservableProperty] private bool isGenerated = false;
-
         public SwitchCondition Condition => TemplateInfo.AllowMultiple
             ? isGenerated
                 ? SwitchCondition.ShowRemove
