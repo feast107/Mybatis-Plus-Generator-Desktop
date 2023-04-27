@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
+using System.Linq;
 
 namespace Mybatis_Plus_Generator.Definition.Abstractions
 {
@@ -28,6 +29,17 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions
         [ObservableProperty] private bool isEnable = true;
 
         [ObservableProperty] private bool isGenerated = false;
+
+        /// <summary>
+        /// 可选
+        /// </summary>
+        public bool CanSwitch => CanIgnore || !TemplateInfo!.IsCtor;
+        /// <summary>
+        /// 可以忽略
+        /// </summary>
+        public bool CanIgnore => 
+            canIgnore ??= TemplateInfo!.IsCtor && TemplateInfo.Methods.All(x=>x.GetParameters().Length == 0);
+        private bool? canIgnore;
         public SwitchCondition Condition => TemplateInfo.AllowMultiple
             ? isGenerated
                 ? SwitchCondition.ShowRemove
