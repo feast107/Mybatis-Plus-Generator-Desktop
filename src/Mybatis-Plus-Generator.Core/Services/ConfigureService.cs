@@ -1,10 +1,13 @@
 ﻿using System.Collections.ObjectModel;
+using com.baomidou.mybatisplus.generator.config;
+using Microsoft.Extensions.DependencyInjection;
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
 
 namespace Mybatis_Plus_Generator.Core.Services
 {
-    internal class ConfigureService : IConfigureService
+    internal class ConfigureService<TConfigInfo> : 
+        IConfigureService<TConfigInfo> where TConfigInfo : ConfigInfo
     {
         private readonly ITemplateService templateService;
         public ConfigureService(ITemplateService templateService)
@@ -34,21 +37,20 @@ namespace Mybatis_Plus_Generator.Core.Services
             return record;
         }
 
-        public ConfigInfo Instantiate(TemplateInfo template, string name)
+        public TConfigInfo Instantiate(TemplateInfo template, string name)
         {
-            return new ConfigInfo()
+            var config = Core.Provider.GetRequiredService<TConfigInfo>();
+            config.TemplateInfo = template;
+            config.ConfigName = name;
+            config.ConfigItems = template.Fields.Aggregate(new ObservableCollection<ConfigItemInfo>(), (o, e) =>
             {
-                TemplateInfo = template,
-                ConfigName = name,
-                ConfigItems = template.Fields.Aggregate(new ObservableCollection<ConfigItemInfo>(), (o, e) =>
+                o.Add(new ConfigItemInfo()
                 {
-                    o.Add(new ConfigItemInfo()
-                    {
-                        TemplateInfo = e,
-                    });
-                    return o;
-                })
-            };
+                    TemplateInfo = e,
+                });
+                return o;
+            });
+            return config;
         }
     }
 }
