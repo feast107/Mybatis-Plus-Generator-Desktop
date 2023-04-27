@@ -22,10 +22,10 @@
                   ItemsSource="{Binding ConfigItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border
+                    <Border Visibility="{Binding CanIgnore,Converter={StaticResource InverseBool2VisibilityCollapsedConverter},Mode=OneTime}"
                         Padding="0,0,32,0" Height="Auto" 
                         Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}">
-                        <Grid  Margin="0,0,0,0">
+                        <Grid Margin="0,0,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -34,7 +34,8 @@
                             </Grid.ColumnDefinitions>
 
                             <Grid Margin="0,0,10,0" >
-                                <ToggleButton Margin="4,0"  Width="40"
+                                <ToggleButton Margin="4,0"  Width="40" 
+                                              Visibility="{Binding CanSwitch,Converter={StaticResource BooleanToVisibilityConverter},Mode=OneWay}"
                                               IsChecked="{Binding IsEnable}"
                                               Style="{StaticResource MaterialDesignSwitchLightToggleButton}"
                                               ToolTip="MaterialDesignSwitchLightToggleButton" />
