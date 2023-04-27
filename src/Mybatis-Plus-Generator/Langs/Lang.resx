@@ -123,11 +123,20 @@
   <data name="addConnectionProperty" xml:space="preserve">
     <value>追加连接字符串</value>
   </data>
+  <data name="author" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="beforeOutputFile" xml:space="preserve">
+    <value>在输出文件前</value>
+  </data>
   <data name="Can not delete fixed config" xml:space="preserve">
     <value>无法删除固定配置</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="commentDate" xml:space="preserve">
+    <value>注释日期</value>
   </data>
   <data name="Config name exists" xml:space="preserve">
     <value>配置名称已存在</value>
@@ -135,14 +144,50 @@
   <data name="ConfigName" xml:space="preserve">
     <value>配置名称</value>
   </data>
+  <data name="controller" xml:space="preserve">
+    <value>控制器</value>
+  </data>
+  <data name="customFile" xml:space="preserve">
+    <value>自定义文件</value>
+  </data>
+  <data name="customMap" xml:space="preserve">
+    <value>自定义映射</value>
+  </data>
   <data name="databaseQueryClass" xml:space="preserve">
     <value>数据库查询类</value>
   </data>
   <data name="DataSourceConfig" xml:space="preserve">
     <value>数据源配置</value>
   </data>
+  <data name="dateType" xml:space="preserve">
+    <value>时间类型</value>
+  </data>
   <data name="dbQuery" xml:space="preserve">
     <value>查询字符串</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="disableOpenDir" xml:space="preserve">
+    <value>禁止打开目录</value>
+  </data>
+  <data name="disableServiceInterface" xml:space="preserve">
+    <value>禁用服务接口</value>
+  </data>
+  <data name="enableKotlin" xml:space="preserve">
+    <value>启用Kotlin</value>
+  </data>
+  <data name="enableSpringdoc" xml:space="preserve">
+    <value>启用Springdoc</value>
+  </data>
+  <data name="enableSwagger" xml:space="preserve">
+    <value>启用Swagger</value>
+  </data>
+  <data name="entity" xml:space="preserve">
+    <value>领域类</value>
+  </data>
+  <data name="fileOverride" xml:space="preserve">
+    <value>文件覆写</value>
   </data>
   <data name="GlobalConfig" xml:space="preserve">
     <value>全局配置</value>
@@ -153,14 +198,35 @@
   <data name="Language" xml:space="preserve">
     <value>中文</value>
   </data>
+  <data name="mapper" xml:space="preserve">
+    <value>映射器</value>
+  </data>
+  <data name="moduleName" xml:space="preserve">
+    <value>模块名称</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>好的</value>
+  </data>
+  <data name="outputDir" xml:space="preserve">
+    <value>输出目录</value>
   </data>
   <data name="PackageConfig" xml:space="preserve">
     <value>包配置</value>
   </data>
+  <data name="parent" xml:space="preserve">
+    <value>父类</value>
+  </data>
+  <data name="pathInfo" xml:space="preserve">
+    <value>路径信息</value>
+  </data>
   <data name="Please provide config name" xml:space="preserve">
     <value>请提供配置名称</value>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>服务接口</value>
+  </data>
+  <data name="serviceImpl" xml:space="preserve">
+    <value>服务实现类</value>
   </data>
   <data name="StrategyConfig" xml:space="preserve">
     <value>策略配置</value>
@@ -173,5 +239,8 @@
   </data>
   <data name="typeConvertHandler" xml:space="preserve">
     <value>类型转换事件</value>
+  </data>
+  <data name="xml" xml:space="preserve">
+    <value>xml文件</value>
   </data>
 </root>
