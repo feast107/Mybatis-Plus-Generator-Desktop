@@ -17,6 +17,10 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions
         /// <summary>
         /// 调用方法
         /// </summary>
-        [ObservableProperty] private ObservableCollection<MethodInfo> methods = new();
+        [ObservableProperty] private ObservableCollection<MethodBase> methods = new();
+        /// <summary>
+        /// 是否是构造函数
+        /// </summary>
+        [ObservableProperty] private bool isCtor;
     }
 }
