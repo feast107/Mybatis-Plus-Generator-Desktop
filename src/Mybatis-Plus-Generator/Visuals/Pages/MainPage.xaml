@@ -8,7 +8,7 @@
       xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
       xmlns:pages="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
       xmlns:system="clr-namespace:System;assembly=System.Runtime"
-      mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}"
+      mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigRecordViewModel}"
         Title="MainPage" x:Name="Page">
     <Grid>
         <Grid.RowDefinitions>
@@ -46,8 +46,9 @@
 
         </ToolBarTray>
         <Grid Grid.Row="1">
-            <TabControl Grid.Row="0"  ItemsSource="{Binding Current.Configs}" 
-                        MinWidth="100"
+            <TabControl Grid.Row="0" SelectedIndex="{Binding Current.Configs.Count,Converter={StaticResource IndexConverter},Mode=OneWay}"  
+                        ItemsSource="{Binding Current.Configs}" 
+                        MinWidth="100" TabIndex="{Binding }"
                     TabStripPlacement="Left"
                     Width="Auto" md:ColorZoneAssist.Mode="PrimaryLight" 
                     Style="{DynamicResource MaterialDesignFilledTabControl}">
