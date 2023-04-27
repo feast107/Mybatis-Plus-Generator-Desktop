@@ -120,6 +120,9 @@
   <data name="Accept" xml:space="preserve">
     <value>确认</value>
   </data>
+  <data name="addConnectionProperty" xml:space="preserve">
+    <value>追加连接字符串</value>
+  </data>
   <data name="Can not delete fixed config" xml:space="preserve">
     <value>无法删除固定配置</value>
   </data>
@@ -132,8 +135,14 @@
   <data name="ConfigName" xml:space="preserve">
     <value>配置名称</value>
   </data>
+  <data name="databaseQueryClass" xml:space="preserve">
+    <value>数据库查询类</value>
+  </data>
   <data name="DataSourceConfig" xml:space="preserve">
     <value>数据源配置</value>
+  </data>
+  <data name="dbQuery" xml:space="preserve">
+    <value>查询字符串</value>
   </data>
   <data name="GlobalConfig" xml:space="preserve">
     <value>全局配置</value>
@@ -158,5 +167,8 @@
   </data>
   <data name="TemplateConfig" xml:space="preserve">
     <value>模板配置</value>
+  </data>
+  <data name="typeConvert" xml:space="preserve">
+    <value>类型转换</value>
   </data>
 </root>
