@@ -79,6 +79,24 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 作者 的本地化字符串。
+        /// </summary>
+        public static string author {
+            get {
+                return ResourceManager.GetString("author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在输出文件前 的本地化字符串。
+        /// </summary>
+        public static string beforeOutputFile {
+            get {
+                return ResourceManager.GetString("beforeOutputFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 无法删除固定配置 的本地化字符串。
         /// </summary>
         public static string Can_not_delete_fixed_config {
@@ -93,6 +111,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注释日期 的本地化字符串。
+        /// </summary>
+        public static string commentDate {
+            get {
+                return ResourceManager.GetString("commentDate", resourceCulture);
             }
         }
         
@@ -115,6 +142,33 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 控制器 的本地化字符串。
+        /// </summary>
+        public static string controller {
+            get {
+                return ResourceManager.GetString("controller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自定义文件 的本地化字符串。
+        /// </summary>
+        public static string customFile {
+            get {
+                return ResourceManager.GetString("customFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自定义映射 的本地化字符串。
+        /// </summary>
+        public static string customMap {
+            get {
+                return ResourceManager.GetString("customMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数据库查询类 的本地化字符串。
         /// </summary>
         public static string databaseQueryClass {
@@ -133,11 +187,92 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 时间类型 的本地化字符串。
+        /// </summary>
+        public static string dateType {
+            get {
+                return ResourceManager.GetString("dateType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 查询字符串 的本地化字符串。
         /// </summary>
         public static string dbQuery {
             get {
                 return ResourceManager.GetString("dbQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 禁用 的本地化字符串。
+        /// </summary>
+        public static string disable {
+            get {
+                return ResourceManager.GetString("disable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 禁止打开目录 的本地化字符串。
+        /// </summary>
+        public static string disableOpenDir {
+            get {
+                return ResourceManager.GetString("disableOpenDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 禁用服务接口 的本地化字符串。
+        /// </summary>
+        public static string disableServiceInterface {
+            get {
+                return ResourceManager.GetString("disableServiceInterface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用Kotlin 的本地化字符串。
+        /// </summary>
+        public static string enableKotlin {
+            get {
+                return ResourceManager.GetString("enableKotlin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用Springdoc 的本地化字符串。
+        /// </summary>
+        public static string enableSpringdoc {
+            get {
+                return ResourceManager.GetString("enableSpringdoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用Swagger 的本地化字符串。
+        /// </summary>
+        public static string enableSwagger {
+            get {
+                return ResourceManager.GetString("enableSwagger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 领域类 的本地化字符串。
+        /// </summary>
+        public static string entity {
+            get {
+                return ResourceManager.GetString("entity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文件覆写 的本地化字符串。
+        /// </summary>
+        public static string fileOverride {
+            get {
+                return ResourceManager.GetString("fileOverride", resourceCulture);
             }
         }
         
@@ -169,11 +304,38 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 映射器 的本地化字符串。
+        /// </summary>
+        public static string mapper {
+            get {
+                return ResourceManager.GetString("mapper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 模块名称 的本地化字符串。
+        /// </summary>
+        public static string moduleName {
+            get {
+                return ResourceManager.GetString("moduleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 好的 的本地化字符串。
         /// </summary>
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 输出目录 的本地化字符串。
+        /// </summary>
+        public static string outputDir {
+            get {
+                return ResourceManager.GetString("outputDir", resourceCulture);
             }
         }
         
@@ -187,11 +349,47 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 父类 的本地化字符串。
+        /// </summary>
+        public static string parent {
+            get {
+                return ResourceManager.GetString("parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 路径信息 的本地化字符串。
+        /// </summary>
+        public static string pathInfo {
+            get {
+                return ResourceManager.GetString("pathInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请提供配置名称 的本地化字符串。
         /// </summary>
         public static string Please_provide_config_name {
             get {
                 return ResourceManager.GetString("Please provide config name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务接口 的本地化字符串。
+        /// </summary>
+        public static string service {
+            get {
+                return ResourceManager.GetString("service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务实现类 的本地化字符串。
+        /// </summary>
+        public static string serviceImpl {
+            get {
+                return ResourceManager.GetString("serviceImpl", resourceCulture);
             }
         }
         
@@ -228,6 +426,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string typeConvertHandler {
             get {
                 return ResourceManager.GetString("typeConvertHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 xml文件 的本地化字符串。
+        /// </summary>
+        public static string xml {
+            get {
+                return ResourceManager.GetString("xml", resourceCulture);
             }
         }
     }
