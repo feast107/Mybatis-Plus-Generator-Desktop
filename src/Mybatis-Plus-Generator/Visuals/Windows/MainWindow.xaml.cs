@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
 using MaterialDesignThemes.Wpf;
@@ -24,12 +25,13 @@ namespace Mybatis_Plus_Generator.Visuals.Windows
         {
             InitializeComponent();
             Core.Core.Services.AddDefaultService();
-            Core.Core.Services.AddTransient<ConfigPageViewModel>();
+            Core.Core.Services.AddTransient<ConfigRecordViewModel>();
+            Core.Core.Services.AddTransient<ConfigInfoViewModel>();
             Core.Core.Build();
-            var dc = Core.Core.Provider.GetRequiredService<ConfigPageViewModel>();
+            var dc = Core.Core.Provider.GetRequiredService<ConfigRecordViewModel>();
             ConfigExporter.ExportConfigs();
             var templateService = Core.Core.Provider.GetRequiredService<ITemplateService>();
-            var configureService = Core.Core.Provider.GetRequiredService<IConfigureService>();
+            var configureService = Core.Core.Provider.GetRequiredService<IConfigureService<ConfigInfoViewModel>>();
             dc.Records = configureService.Records;
             if (configureService.Records.Count == 0)
             {
