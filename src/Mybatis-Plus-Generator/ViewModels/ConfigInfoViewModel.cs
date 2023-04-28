@@ -34,7 +34,7 @@ namespace Mybatis_Plus_Generator.ViewModels
                     ConfigItems.Insert(i + 1, new ConfigItemInfoViewModel()
                     {
                         TemplateInfo = templateItem,
-                        IsGenerated = true
+                        IsGenerated = true,
                     });
                     return;
                 }
