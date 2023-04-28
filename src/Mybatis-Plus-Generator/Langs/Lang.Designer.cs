@@ -97,6 +97,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 构造器 的本地化字符串。
+        /// </summary>
+        public static string Builder {
+            get {
+                return ResourceManager.GetString("Builder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 无法删除固定配置 的本地化字符串。
         /// </summary>
         public static string Can_not_delete_fixed_config {
@@ -295,6 +304,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 键 的本地化字符串。
+        /// </summary>
+        public static string key {
+            get {
+                return ResourceManager.GetString("key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 中文 的本地化字符串。
         /// </summary>
         public static string Language {
@@ -426,6 +444,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string typeConvertHandler {
             get {
                 return ResourceManager.GetString("typeConvertHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 值 的本地化字符串。
+        /// </summary>
+        public static string value {
+            get {
+                return ResourceManager.GetString("value", resourceCulture);
             }
         }
         
