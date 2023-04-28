@@ -23,16 +23,16 @@ internal partial class ConfigItemInfoViewModel : ConfigItemInfo
     /// 可选
     /// </summary>
     public bool ShowSwitch => 
-        !TemplateInfo!.IsCtor || CanIgnore;
+        !TemplateItemInfo!.IsCtor || CanIgnore;
     /// <summary>
     /// 可以忽略
     /// </summary>
     public bool CanIgnore => canIgnore ??= 
-        TemplateInfo!.IsCtor && TemplateInfo.Methods.Any(x => x.GetParameters().Length == 0);
+        TemplateItemInfo!.IsCtor && TemplateItemInfo.Methods.Any(x => x.GetParameters().Length == 0);
 
     private bool? canIgnore;
 
-    public SwitchCondition Condition => TemplateInfo!.AllowMultiple
+    public SwitchCondition Condition => TemplateItemInfo!.AllowMultiple
         ? IsGenerated
             ? SwitchCondition.ShowRemove
             : SwitchCondition.ShowAdd
