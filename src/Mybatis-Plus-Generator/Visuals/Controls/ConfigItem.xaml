@@ -33,6 +33,7 @@
             Header="{Binding FieldName,Converter={StaticResource Lang}}">
             <ListBox 
                 PreviewMouseWheel="UIElement_OnPreviewMouseWheel"
+                md:ListBoxItemAssist.ShowSelection="False"
                 ItemsSource="{Binding Args}" 
                 IsEnabled="{Binding IsEnable}">
                 <ListBox.ItemTemplate>
