@@ -6,39 +6,38 @@ using System.Threading.Tasks;
 using System.Windows;
 using Mybatis_Plus_Generator.ViewModels;
 
-namespace Mybatis_Plus_Generator.Converters
+namespace Mybatis_Plus_Generator.Converters;
+
+internal class InputNoArgConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
 {
-    internal class InputNoArgConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
+    protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
     {
-        protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
+        return condition switch
         {
-            return condition switch
-            {
-                ConfigItemInfoViewModel.InputTypes.NoArg => Visibility.Visible,
-                _ => Visibility.Collapsed,
-            };
-        }
+            ConfigItemInfoViewModel.InputTypes.NoArg => Visibility.Visible,
+            _ => Visibility.Collapsed,
+        };
     }
-    internal class InputStringConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
+}
+internal class InputStringConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
+{
+    protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
     {
-        protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
+        return condition switch
         {
-            return condition switch
-            {
-                ConfigItemInfoViewModel.InputTypes.StringArg => Visibility.Visible,
-                _ => Visibility.Collapsed,
-            };
-        }
+            ConfigItemInfoViewModel.InputTypes.StringArg => Visibility.Visible,
+            _ => Visibility.Collapsed,
+        };
     }
-    internal class InputMultiStringConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
+}
+internal class InputMultiStringConverter : EnumToVisibilityConverter<ConfigItemInfoViewModel.InputTypes>
+{
+    protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
     {
-        protected override Visibility Condition(ConfigItemInfoViewModel.InputTypes condition)
+        return condition switch
         {
-            return condition switch
-            {
-                ConfigItemInfoViewModel.InputTypes.MultiStringArg => Visibility.Visible,
-                _ => Visibility.Collapsed,
-            };
-        }
+            ConfigItemInfoViewModel.InputTypes.MultiStringArg => Visibility.Visible,
+            _ => Visibility.Collapsed,
+        };
     }
 }
