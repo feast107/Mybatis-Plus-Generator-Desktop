@@ -1,19 +1,12 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace Mybatis_Plus_Generator.Definition.Abstractions
 {
     public partial class ConfigItemInfo : ObservableObject
     {
-        public partial class ConfigItemArgInfo : ObservableObject
-        {
-            [ObservableProperty] private Type argType;
-            [ObservableProperty] private string argValue;
-            [ObservableProperty] private string argName;
-        }
-
         public enum SwitchCondition
         {
             ShowAdd,
@@ -30,15 +23,30 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions
 
         [ObservableProperty] private bool isGenerated = false;
 
+        private MethodBase ChangeSelectMethod(MethodBase method)
+        {
+            SetProperty(ref selectMethod, method);
+            var param = method.GetParameters();
+            Args = param.Aggregate(new ObservableCollection<ConfigItemArgInfo>(), (o, c) =>
+            {
+                o.Add(new ConfigItemArgInfo()
+                {
+                    ArgName = c.Name,
+                    ArgType = c.ParameterType,
+                });
+                return o;
+            });
+            return method;
+        }
+
         public MethodBase SelectMethod
         {
-            get => selectMethod??= TemplateInfo.Methods[0];
-            set => SetProperty(ref selectMethod, value);
+            get => selectMethod ??= ChangeSelectMethod(TemplateInfo!.Methods[0]);
+            set => ChangeSelectMethod(value);
         }
-        private MethodBase? selectMethod;
 
+        private MethodBase? selectMethod;
         
-        public ObservableCollection<ConfigItemArgInfo> Args => throw new NotImplementedException();
-        private ObservableCollection<ConfigItemArgInfo>? args;
+        [ObservableProperty] private ObservableCollection<ConfigItemArgInfo>? args;
     }
 }
