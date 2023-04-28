@@ -53,7 +53,7 @@
                                     Visibility="{Binding Condition,Converter={StaticResource ShowAddConverter}}"
                                     Style="{StaticResource RightButtonAdd}"
                                     Command="{Binding DataContext.AddConfigCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding TemplateInfo}"
+                                    CommandParameter="{Binding TemplateItemInfo}"
                                     ToolTip="MaterialDesignFloatingActionMiniLightButton"  >
                                     <md:PackIcon  Kind="Add"/>
                                 </Button>
