@@ -5,18 +5,18 @@ namespace Mybatis_Plus_Generator.ViewModels;
 
 internal partial class ConfigItemInfoViewModel : ConfigItemInfo
 {
-    public enum InputTypes
+    public enum ArgTypes
     {
         NoArg,
-        StringArg,
-        MultiStringArg
+        SingleArg,
+        MultiArg
     }
 
-    public InputTypes InputType => SelectMethod.GetParameters().Length switch
+    public ArgTypes ArgType => SelectMethod.GetParameters().Length switch
     {
-        0 => InputTypes.NoArg,
-        1 => InputTypes.StringArg,
-        _ => InputTypes.MultiStringArg
+        0 => ArgTypes.NoArg,
+        1 => ArgTypes.SingleArg,
+        _ => ArgTypes.MultiArg
     };
 
     /// <summary>
