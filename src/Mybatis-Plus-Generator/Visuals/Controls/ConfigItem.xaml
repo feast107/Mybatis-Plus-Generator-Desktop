@@ -15,14 +15,14 @@
                        IsEnabled="{Binding IsEnable}"
                        VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
                        Margin="0,12,0,12" FontSize="16"
-                       Text="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                       Text="{Binding FieldName,Converter={StaticResource Lang}}"
             >
         </TextBlock>
         <GroupBox md:ColorZoneAssist.Mode="PrimaryLight"
                   Visibility="{Binding InputType,Converter={StaticResource InputStringConverter}}"
                       IsEnabled="{Binding IsEnable}"
                       Style="{StaticResource MaterialDesignGroupBox}"
-                      Header="{Binding TemplateInfo.FieldName,Converter={StaticResource Lang}}">
+                      Header="{Binding FieldName,Converter={StaticResource Lang}}">
             <co:ConfigInput DataContext="{Binding Arg}"></co:ConfigInput>
         </GroupBox>
         <GroupBox 
@@ -30,7 +30,7 @@
             Visibility="{Binding InputType,Converter={StaticResource InputMultiStringConverter}}"
             IsEnabled="{Binding IsEnable}"
             Style="{StaticResource MaterialDesignGroupBox}"
-            Header="{Binding TemplateInfo.FieldName,Converter={StaticResource Lang}}">
+            Header="{Binding FieldName,Converter={StaticResource Lang}}">
             <ListBox 
                 PreviewMouseWheel="UIElement_OnPreviewMouseWheel"
                 ItemsSource="{Binding Args}" 
