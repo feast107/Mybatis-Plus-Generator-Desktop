@@ -129,6 +129,9 @@
   <data name="beforeOutputFile" xml:space="preserve">
     <value>在输出文件前</value>
   </data>
+  <data name="Builder" xml:space="preserve">
+    <value>构造器</value>
+  </data>
   <data name="Can not delete fixed config" xml:space="preserve">
     <value>无法删除固定配置</value>
   </data>
@@ -195,6 +198,9 @@
   <data name="InjectionConfig" xml:space="preserve">
     <value>注入配置</value>
   </data>
+  <data name="key" xml:space="preserve">
+    <value>键</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>中文</value>
   </data>
@@ -239,6 +245,9 @@
   </data>
   <data name="typeConvertHandler" xml:space="preserve">
     <value>类型转换事件</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>值</value>
   </data>
   <data name="xml" xml:space="preserve">
     <value>xml文件</value>
