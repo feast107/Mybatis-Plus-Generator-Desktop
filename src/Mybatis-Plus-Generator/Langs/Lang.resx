@@ -201,7 +201,7 @@
   <data name="disableSqlFilter" xml:space="preserve">
     <value>禁用Sql过滤</value>
   </data>
-  <data name="enableCapitalModel" xml:space="preserve">
+  <data name="enableCapitalMode" xml:space="preserve">
     <value>启用大写模式</value>
   </data>
   <data name="enableKotlin" xml:space="preserve">
