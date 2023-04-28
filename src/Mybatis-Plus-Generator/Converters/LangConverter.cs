@@ -3,34 +3,33 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Mybatis_Plus_Generator.Converters
+namespace Mybatis_Plus_Generator.Converters;
+
+public class LangConverter : IValueConverter
 {
-    public class LangConverter : IValueConverter
+    public object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
     {
-        public object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
+        try
         {
-            try
+            switch (value)
             {
-                switch (value)
-                {
-                    case string key:
-                        return Langs.Lang.ResourceManager.GetString(key) ?? key;
-                    case UIElement ui:
-                        return Langs.Lang.ResourceManager.GetString(parameter.ToString() ?? string.Empty) ?? string.Empty;
-                }
+                case string key:
+                    return Langs.Lang.ResourceManager.GetString(key) ?? key;
+                case UIElement ui:
+                    return Langs.Lang.ResourceManager.GetString(parameter.ToString() ?? string.Empty) ?? string.Empty;
             }
-            catch
-            {
-                //
-            }
-            return value;
         }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        catch
         {
-            throw new NotSupportedException();
+            //
         }
-
-
+        return value;
     }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotSupportedException();
+    }
+
+
 }
