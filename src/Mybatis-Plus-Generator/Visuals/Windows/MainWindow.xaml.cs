@@ -18,18 +18,17 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        Core.Core.Services.AddDefaultService();
-        Core.Core.Services.AddTransient<ConfigItemInfoViewModel>();
-        Core.Core.Services.AddTransient<ConfigInfoViewModel>();
-        Core.Core.Services.AddTransient<ConfigRecordViewModel>();
-        Core.Core.Services.AddTransient<ConfigPageViewModel>();
-        Core.Core.Build();
+        Color.FromRgb(12, 174, 135).SetTheme();
+        Loaded += OnLoaded;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
         var templateService = Core.Core.Provider.GetRequiredService<ITemplateService>();
         var configureService = Core.Core.Provider.GetRequiredService<IConfigureService>();
         var dc = Core.Core.Provider.GetRequiredService<ConfigPageViewModel>();
         this.DataContext = dc;
         dc.Records = configureService.Records;
         dc.Templates = templateService.AdditionalTemplates;
-        Color.FromRgb(12, 174, 135).SetTheme();
     }
 }
