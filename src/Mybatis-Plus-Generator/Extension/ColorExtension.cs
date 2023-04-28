@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows.Media;
-using MaterialDesignColors;
-using MaterialDesignColors.ColorManipulation;
+﻿using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using Mybatis_Plus_Generator.Converters;
+using System;
+using System.Windows.Media;
 
 namespace Mybatis_Plus_Generator.Extension;
 
