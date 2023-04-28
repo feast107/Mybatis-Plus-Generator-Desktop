@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace Mybatis_Plus_Generator.Visuals.Pages
+namespace Mybatis_Plus_Generator.Visuals.Pages;
+
+/// <summary>
+/// ConfigView.xaml 的交互逻辑
+/// </summary>
+public partial class MainPage : Page
 {
-    /// <summary>
-    /// ConfigView.xaml 的交互逻辑
-    /// </summary>
-    public partial class MainPage : Page
+    public MainPage()
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
