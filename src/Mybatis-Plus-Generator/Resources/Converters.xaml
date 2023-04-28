@@ -2,11 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:co="clr-namespace:Mybatis_Plus_Generator.Converters">
     <co:LangConverter x:Key="Lang"/>
-    <co:SwitchAddConverter x:Key="ShowAddConverter" />
-    <co:SwitchRemoveConverter x:Key="ShowRemoveConverter" />
-    <co:SwitchNoneConverter x:Key="NotShowConverter" />
     <co:IndexConverter x:Key="IndexConverter" />
     <co:Bool2VisibilityCollapsedConverter x:Key="Bool2VisibilityCollapsedConverter" />
     <co:InverseBool2VisibilityCollapsedConverter x:Key="InverseBool2VisibilityCollapsedConverter" />
+
+    <co:SwitchAddConverter x:Key="ShowAddConverter" />
+    <co:SwitchRemoveConverter x:Key="ShowRemoveConverter" />
+    <co:SwitchNoneConverter x:Key="NotShowConverter" />
+
+
+    <co:InputNoArgConverter x:Key="InputNoArgConverter" />
+    <co:InputStringConverter x:Key="InputStringConverter" />
+    <co:InputMultiStringConverter x:Key="InputMultiStringConverter" />
 
 </ResourceDictionary>
