@@ -17,7 +17,9 @@ public partial class ConfigItemInfo : ObservableObject
     /// <summary>
     /// 关联模板
     /// </summary>
-    [ObservableProperty] private TemplateItemInfo templateInfo = null!;
+    [ObservableProperty] private TemplateItemInfo templateItemInfo = null!;
+    public string FieldName => TemplateItemInfo.FieldName;
+
 
     [ObservableProperty] private bool isEnable = true;
 
@@ -42,7 +44,7 @@ public partial class ConfigItemInfo : ObservableObject
     public bool HasParam => SelectMethod.GetParameters().Length != 0;
     public MethodBase SelectMethod
     {
-        get => selectMethod ??= ChangeSelectMethod(TemplateInfo!.Methods[0]);
+        get => selectMethod ??= ChangeSelectMethod(TemplateItemInfo!.Methods[0]);
         set => ChangeSelectMethod(value);
     }
     private MethodBase? selectMethod;
