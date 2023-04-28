@@ -11,9 +11,11 @@ internal class TemplateService : ITemplateService
     public const string Config = nameof(Config);
     public const string Builder = nameof(Builder);
 
+    public static Type GeneratorType = typeof(AutoGenerator);
+
     public TemplateService()
     {
-        GeneratorConstructor = typeof(AutoGenerator)
+        GeneratorConstructor = GeneratorType
             .GetConstructors()[0];
         var primaryConfig =  GeneratorConstructor
             .GetParameters()[0]
@@ -25,9 +27,9 @@ internal class TemplateService : ITemplateService
             Fields = GetTemplateInfo(primaryConfig.GetNestedType(Builder)!)
         };
 
-        AdditionalTemplates = typeof(AutoGenerator)
+        AdditionalTemplates = GeneratorType
             .GetMethods()
-            .Where(x => x.ReturnType == typeof(AutoGenerator) && x.GetParameters().Length == 1)
+            .Where(x => x.ReturnType == GeneratorType && x.GetParameters().Length == 1)
             .Select(x => x.GetParameters()[0].ParameterType)
             .Aggregate(new ObservableCollection<TemplateInfo>(),
                 (c, t) =>
@@ -47,6 +49,15 @@ internal class TemplateService : ITemplateService
     public ConstructorInfo GeneratorConstructor { get; }
     public TemplateInfo PrimaryTemplate { get;  }
     public ObservableCollection<TemplateInfo> AdditionalTemplates { get; }
+    public MethodInfo GetConfigMethod(Type configType)
+    {
+        return GeneratorType.GetMethods().First(x =>
+        {
+            var param = x.GetParameters();
+            return param.Length == 1 && param[0].ParameterType == configType;
+        });
+    }
+
     private static ObservableCollection<TemplateItemInfo> GetTemplateInfo(Type type)
     {
         return type
