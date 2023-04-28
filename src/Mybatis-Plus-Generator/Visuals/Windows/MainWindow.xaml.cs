@@ -1,19 +1,11 @@
-﻿using Mybatis_Plus_Generator.Core.Extensions;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Extensions.DependencyInjection;
+using Mybatis_Plus_Generator.Core.Extensions;
+using Mybatis_Plus_Generator.Core.Interfaces;
+using Mybatis_Plus_Generator.Extension;
 using Mybatis_Plus_Generator.ViewModels;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Dynamic;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
-using MaterialDesignThemes.Wpf;
-using Microsoft.Extensions.DependencyInjection;
-using Mybatis_Plus_Generator.Core.Interfaces;
-using Mybatis_Plus_Generator.Visuals.Controls;
-using MaterialDesignColors;
-using Mybatis_Plus_Generator.Definition.Abstractions;
-using Mybatis_Plus_Generator.Extension;
 using IConfigureService =
     Mybatis_Plus_Generator.Core.Interfaces.IConfigureService<
         Mybatis_Plus_Generator.ViewModels.ConfigRecordViewModel,
