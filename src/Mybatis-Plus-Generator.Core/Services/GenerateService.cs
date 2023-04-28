@@ -1,6 +1,4 @@
-﻿using com.baomidou.mybatisplus.generator;
-using ikvm.extensions;
-using Mybatis_Plus_Generator.Core.Interfaces;
+﻿using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
 
 namespace Mybatis_Plus_Generator.Core.Services;
