@@ -2,6 +2,7 @@
 using Mybatis_Plus_Generator.ViewModels;
 using System.Windows;
 using Mybatis_Plus_Generator.Core.Extensions;
+using Mybatis_Plus_Generator.Extension;
 
 namespace Mybatis_Plus_Generator;
 
@@ -13,10 +14,7 @@ public partial class App : Application
     public App()
     {
         Core.Core.Services.AddDefaultService();
-        Core.Core.Services.AddTransient<ConfigItemInfoViewModel>();
-        Core.Core.Services.AddTransient<ConfigInfoViewModel>();
-        Core.Core.Services.AddTransient<ConfigRecordViewModel>();
-        Core.Core.Services.AddTransient<ConfigPageViewModel>();
+        Core.Core.Services.AddViewModels();
         Core.Core.Build();
     }
 }
