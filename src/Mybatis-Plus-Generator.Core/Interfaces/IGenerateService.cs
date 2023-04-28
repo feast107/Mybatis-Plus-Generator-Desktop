@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Mybatis_Plus_Generator.Definition.Abstractions;
 
-namespace Mybatis_Plus_Generator.Core.Interfaces
+namespace Mybatis_Plus_Generator.Core.Interfaces;
+
+public interface IGenerateService<in TConfigRecord, TConfigInfo, TConfigItemInfo>
+    where TConfigRecord : ConfigRecord<TConfigInfo, TConfigItemInfo>
+    where TConfigInfo : ConfigInfo<TConfigItemInfo>
+    where TConfigItemInfo : ConfigItemInfo
 {
-    public interface IGenerateService
-    {
-    }
+    Task<bool> Generate(TConfigRecord record);
 }
