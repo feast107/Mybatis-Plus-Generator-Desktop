@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Mybatis_Plus_Generator.ViewModels
 {
-    internal class ConfigItemInfoViewModel : ConfigItemInfo
+    internal partial class ConfigItemInfoViewModel : ConfigItemInfo
     {
         public enum InputTypes
         {
@@ -37,5 +37,7 @@ namespace Mybatis_Plus_Generator.ViewModels
                 ? SwitchCondition.ShowRemove
                 : SwitchCondition.ShowAdd
             : SwitchCondition.None;
+
+        public ConfigItemArgInfo Arg => SelectMethod.GetParameters().Length == 0 ? null : Args[0];
     }
 }
