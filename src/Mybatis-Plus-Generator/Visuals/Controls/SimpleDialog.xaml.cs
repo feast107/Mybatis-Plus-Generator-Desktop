@@ -14,21 +14,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mybatis_Plus_Generator.Visuals.Controls
+namespace Mybatis_Plus_Generator.Visuals.Controls;
+
+/// <summary>
+/// SimpleDialog.xaml 的交互逻辑
+/// </summary>
+public partial class SimpleDialog : UserControl
 {
-    /// <summary>
-    /// SimpleDialog.xaml 的交互逻辑
-    /// </summary>
-    public partial class SimpleDialog : UserControl
+    public static async Task<object?> Show(string content, string host)
     {
-        public static async Task<object?> Show(string content, string host)
-        {
-            return await DialogHost.Show(new SimpleDialog(content), host);
-        }
-        public SimpleDialog(string text)
-        {
-            InitializeComponent();
-            this.Text.Tag = text;
-        }
+        return await DialogHost.Show(new SimpleDialog(content), host);
+    }
+    public SimpleDialog(string text)
+    {
+        InitializeComponent();
+        this.Text.Tag = text;
     }
 }
