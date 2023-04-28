@@ -17,6 +17,8 @@ internal class ConfigureService<TConfigRecord,TConfigInfo, TConfigItemInfo>
     {
         this.templateService = templateService;
     }
+    
+    public ObservableCollection<TConfigRecord> Records { get; } = new();
 
     public object?[]? ResolveArgs(TConfigItemInfo configItemInfo)
     {
@@ -32,8 +34,6 @@ internal class ConfigureService<TConfigRecord,TConfigInfo, TConfigItemInfo>
                 })
                 .ToArray();
     }
-
-    public ObservableCollection<TConfigRecord> Records { get; } = new ();
 
     public TConfigRecord CreateRecord(string name)
     {
