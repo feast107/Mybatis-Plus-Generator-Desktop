@@ -1,6 +1,4 @@
 ﻿// ReSharper disable once CheckNamespace
-using System;
-using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 namespace System.Runtime.CompilerServices;
