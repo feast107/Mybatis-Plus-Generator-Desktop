@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using Mybatis_Plus_Generator.Core;
 
-namespace Mybatis_Plus_Generator
+namespace Mybatis_Plus_Generator;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-    }
 }
