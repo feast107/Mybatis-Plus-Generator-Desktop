@@ -5,36 +5,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
+             xmlns:abs="clr-namespace:Mybatis_Plus_Generator.Definition.Abstractions;assembly=Mybatis-Plus-Generator.Definition"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigItemInfoViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
+
         <TextBlock Visibility="{Binding InputType,Converter={StaticResource InputNoArgConverter}}"
-                   IsEnabled="{Binding IsEnable}"
-                   VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
-                   Margin="0,20,0,20" FontSize="16"
-                   Text="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
-                   >
+                       IsEnabled="{Binding IsEnable}"
+                       VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
+                       Margin="0,12,0,12" FontSize="16"
+                       Text="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+            >
         </TextBlock>
-        <TextBox Visibility="{Binding InputType,Converter={StaticResource InputStringConverter}}"
+        <GroupBox md:ColorZoneAssist.Mode="PrimaryLight"
+                  Visibility="{Binding InputType,Converter={StaticResource InputStringConverter}}"
+                      IsEnabled="{Binding IsEnable}"
+                      Style="{StaticResource MaterialDesignGroupBox}"
+                      Header="{Binding TemplateInfo.FieldName,Converter={StaticResource Lang}}">
+            <TextBox
                  IsEnabled="{Binding IsEnable}"
-                 VerticalAlignment="Top" Text="{Binding Value}" 
-                 Margin="0,0,0,20" FontSize="16"
-                 md:HintAssist.Hint="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                 VerticalAlignment="Top" Text="{Binding Arg.ArgValue}" 
+                 FontSize="16"
+                 md:HintAssist.Hint="{Binding Arg.ArgName,Converter={StaticResource Lang}}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-        </TextBox>
-        <ListBox ItemsSource="{Binding SelectMethod}"
+            </TextBox>
+        </GroupBox>
+        <GroupBox 
+            md:ColorZoneAssist.Mode="PrimaryLight"
             Visibility="{Binding InputType,Converter={StaticResource InputMultiStringConverter}}"
-            IsEnabled="{Binding IsEnable}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBox VerticalAlignment="Top" Text="{Binding Value}" 
+            IsEnabled="{Binding IsEnable}"
+            Style="{StaticResource MaterialDesignGroupBox}"
+            Header="{Binding TemplateInfo.FieldName,Converter={StaticResource Lang}}">
+            <ListBox 
+                PreviewMouseWheel="UIElement_OnPreviewMouseWheel"
+                ItemsSource="{Binding Args}" 
+                IsEnabled="{Binding IsEnable}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <Border d:DataContext="{d:DesignInstance abs:ConfigItemArgInfo}"
+                                Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}">
+                            <TextBox VerticalAlignment="Top" 
+                             Text="{Binding ArgValue}" 
                              Margin="0,0,0,20" FontSize="16"
-                             md:HintAssist.Hint="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                             md:HintAssist.Hint="{Binding  ArgName,Converter={StaticResource Lang}}"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                    </TextBox>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
+                            </TextBox>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
     </Grid>
 </UserControl>
