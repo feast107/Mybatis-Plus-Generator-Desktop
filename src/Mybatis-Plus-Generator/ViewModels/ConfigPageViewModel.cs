@@ -20,6 +20,7 @@ internal partial class ConfigPageViewModel : ObservableObject
     }
 
     [ObservableProperty] private string? configName;
+    [ObservableProperty] private ObservableCollection<TemplateInfo> templates = new();
     [ObservableProperty] private ObservableCollection<ConfigRecordViewModel> records = new();
 
     public ConfigRecordViewModel Current
@@ -30,7 +31,6 @@ internal partial class ConfigPageViewModel : ObservableObject
 
     private ConfigRecordViewModel? current;
 
-    [ObservableProperty] private ObservableCollection<TemplateInfo> templates = new();
 
     [RelayCommand]
     private async Task SelectTemplate(TemplateInfo template)
