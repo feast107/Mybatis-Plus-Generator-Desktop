@@ -8,12 +8,33 @@
              mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigItemInfoViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBox 
-            IsEnabled="{Binding IsEnable}"
-            VerticalAlignment="Top" Text="{Binding Value}" 
-            Margin="0,0,0,20" FontSize="16"
-            md:HintAssist.Hint="{Binding TemplateInfo.FieldName,Converter={StaticResource Lang}}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+        <TextBlock Visibility="{Binding InputType,Converter={StaticResource InputNoArgConverter}}"
+                   IsEnabled="{Binding IsEnable}"
+                   VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
+                   Margin="0,20,0,20" FontSize="16"
+                   Text="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                   >
+        </TextBlock>
+        <TextBox Visibility="{Binding InputType,Converter={StaticResource InputStringConverter}}"
+                 IsEnabled="{Binding IsEnable}"
+                 VerticalAlignment="Top" Text="{Binding Value}" 
+                 Margin="0,0,0,20" FontSize="16"
+                 md:HintAssist.Hint="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
         </TextBox>
+        <ListBox ItemsSource="{Binding SelectMethod}"
+            Visibility="{Binding InputType,Converter={StaticResource InputMultiStringConverter}}"
+            IsEnabled="{Binding IsEnable}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox VerticalAlignment="Top" Text="{Binding Value}" 
+                             Margin="0,0,0,20" FontSize="16"
+                             md:HintAssist.Hint="{Binding SelectMethod.Name,Converter={StaticResource Lang}}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                    </TextBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
     </Grid>
 </UserControl>
