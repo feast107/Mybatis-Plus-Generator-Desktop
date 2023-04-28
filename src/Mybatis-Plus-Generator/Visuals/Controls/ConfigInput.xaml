@@ -13,12 +13,14 @@
                  Visibility="{Binding IsPassword,Converter={StaticResource InverseBool2VisibilityCollapsedConverter}}"
                  Text="{Binding ArgValue}"
                  Margin="0,0,0,20" FontSize="16"
+                 md:HintAssist.HelperText="{Binding ArgType}"
                  md:HintAssist.Hint="{Binding  ArgName,Converter={StaticResource Lang}}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         <PasswordBox VerticalAlignment="Top" 
                      Visibility="{Binding IsPassword,Converter={StaticResource Bool2VisibilityCollapsedConverter}}"
                      Margin="0,0,0,20" FontSize="16"
                      md:TextFieldAssist.HasClearButton="True"
+                     md:HintAssist.HelperText="{Binding ArgType}"
                      md:PasswordBoxAssist.Password="{Binding ArgValue}"
                      md:HintAssist.Hint="{Binding  ArgName,Converter={StaticResource Lang}}"
                      Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" />
