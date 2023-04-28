@@ -1,5 +1,8 @@
-﻿using Mybatis_Plus_Generator.Core.Interfaces;
+﻿using System.Reflection;
+using com.baomidou.mybatisplus.generator;
+using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
+using Mybatis_Plus_Generator.Definition.Extensions;
 
 namespace Mybatis_Plus_Generator.Core.Services;
 
@@ -19,42 +22,60 @@ internal class GenerateService<TConfigRecord, TConfigInfo, TConfigItemInfo>
         this.configureService = configureService;
     }
 
-    public Task<bool> Generate(TConfigRecord record)
+    public async Task Generate(TConfigRecord record)
     {
-        throw new NotImplementedException();
-        record.Configs.Aggregate(
-            templateService.GeneratorConstructor.Invoke( new []{Config(record.FixedConfig!)}), (o, e) => o);
+        (record
+            .Configs
+            .Aggregate(
+                templateService
+                    .GeneratorConstructor
+                    .Invoke(Generate(record.FixedConfig).AsParameter()),
+                (generator, info) =>
+                {
+                    var config = Generate(info);
+                    templateService.GetConfigMethod(info.ConfigType);
+                    return generator;
+                }) as AutoGenerator)!
+            .execute();
+        await Task.CompletedTask;
     }
 
-    private object Config(TConfigInfo configInfo)
+    /// <summary>
+    /// 创建一个配置项
+    /// </summary>
+    /// <param name="configInfo"></param>
+    /// <returns></returns>
+    private object Generate(TConfigInfo configInfo)
     {
-        var builder = configInfo.ConfigItems.FirstOrDefault(x => x.TemplateInfo.IsCtor);
-        object config;
-        if (builder == null)
-        {
-            var ctorArgs = builder!.Args.Select(x=>(object)x).ToArray();
-            config = builder.SelectMethod.Invoke(null, ctorArgs)!;
-        }
-        else
-        {
-            config = Activator.CreateInstance(configInfo.TemplateInfo!.ConfigType!)!;
-        }
+        var builder = configInfo.ConfigItems.FirstOrDefault(x => x.TemplateItemInfo.IsCtor);
+        var config = builder != null 
+            //有条件构造
+            ? (builder.SelectMethod as ConstructorInfo)!.Invoke(configureService.ResolveArgs(builder))! 
+            //无条件构造
+            : Activator.CreateInstance(configInfo.TemplateInfo.ConfigType)!;
         return Config(config, configInfo);
     }
 
-    private object Config(object config, TConfigInfo configInfo)
-    {
-        return configInfo.ConfigItems.Aggregate(config,Config);
-    }
+    /// <summary>
+    /// 配置整项
+    /// </summary>
+    /// <param name="config"></param>
+    /// <param name="info"></param>
+    /// <returns></returns>
+    private object Config(object config, TConfigInfo info) => info.ConfigItems.Aggregate(config, Config);
 
-    private object Config(object config, ConfigItemInfo item)
+    /// <summary>
+    /// 配置单项
+    /// </summary>
+    /// <param name="config"></param>
+    /// <param name="info"></param>
+    /// <returns></returns>
+    private object Config(object config, TConfigItemInfo info)
     {
-        if (!item.IsEnable) return config;
-        item.SelectMethod.Invoke(config, item.SelectMethod.GetParameters().Length == 0
-            ? null
-            : item.Args!
-                .Select(x => (object?)x.ArgValue)
-                .ToArray());
+        if (!info.IsEnable) return config;//不启用该项配置
+        info.SelectMethod.Invoke(config, info.HasParam
+            ? null //无参
+            : configureService.ResolveArgs(info)); //解析参数
         return config;
     }
 }
