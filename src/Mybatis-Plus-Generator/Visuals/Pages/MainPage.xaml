@@ -8,7 +8,7 @@
       xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
       xmlns:pages="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
       mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}"
-        Title="MainPage" x:Name="Page">
+        Title="MainPage" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -19,7 +19,7 @@
                 ClipToBounds="False"
                 Style="{StaticResource MaterialDesignToolBar}">
                 <Button 
-                    Content="{md:PackIcon Kind=Twitter}"
+                    Content="{md:PackIcon Kind=PlayCircleOutline}"
                     ToolTip="Follow me on Twitter" />
                 <Button
                     Content="{md:PackIcon Kind=ContentSave}"
@@ -47,10 +47,13 @@
         <Grid Grid.Row="1">
             <TabControl Grid.Row="0" SelectedIndex="{Binding Current.Configs.Count,Converter={StaticResource IndexConverter},Mode=OneWay}"  
                         ItemsSource="{Binding Current.Configs}" 
-                        MinWidth="100"
-                    TabStripPlacement="Left"
-                    Width="Auto" md:ColorZoneAssist.Mode="PrimaryLight" 
-                    Style="{DynamicResource MaterialDesignFilledTabControl}">
+                        MinWidth="100"   
+                        SnapsToDevicePixels="True"
+                        md:NavigationRailAssist.ShowSelectionBackground="True"
+                        md:ColorZoneAssist.Mode="PrimaryLight" 
+                        TabStripPlacement="Left"
+                        Width="Auto" 
+                        Style="{StaticResource MaterialDesignFilledTabControl}">
                 <TabControl.ContextMenu>
                     <ContextMenu ItemsSource="{Binding Templates}" >
                         <ContextMenu.ItemContainerStyle>
@@ -77,13 +80,20 @@
                 </TabControl.ItemContainerStyle>
                 <TabControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid >
+                        <Grid>
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <TextBlock >Rename</TextBlock>
+                                </ContextMenu>
+                            </Grid.ContextMenu>
                             <Border Width="100">
                             </Border>
-                                <StackPanel HorizontalAlignment="Center" Width="Auto" Orientation="Horizontal">
+                            <StackPanel 
+                                HorizontalAlignment="Center"  Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" Margin="20,0"
-                                           Text="{Binding ConfigName,Converter={StaticResource Lang}}" />
-                                </StackPanel>
+                                           Text="{Binding ConfigName,Converter={StaticResource Lang}}">
+                                </TextBlock>
+                            </StackPanel>
                             <Button x:Name="CloseButton" 
                                     Visibility="Collapsed" 
                                     Command="{Binding DataContext.RemoveConfigCommand, RelativeSource={RelativeSource AncestorType=pages:MainPage}}"
