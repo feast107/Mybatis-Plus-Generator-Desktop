@@ -315,9 +315,9 @@ namespace Mybatis_Plus_Generator.Langs {
         /// <summary>
         ///   查找类似 启用大写模式 的本地化字符串。
         /// </summary>
-        public static string enableCapitalModel {
+        public static string enableCapitalMode {
             get {
-                return ResourceManager.GetString("enableCapitalModel", resourceCulture);
+                return ResourceManager.GetString("enableCapitalMode", resourceCulture);
             }
         }
         
