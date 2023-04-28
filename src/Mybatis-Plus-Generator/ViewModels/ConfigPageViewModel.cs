@@ -13,10 +13,12 @@ namespace Mybatis_Plus_Generator.ViewModels;
 internal partial class ConfigPageViewModel : ObservableObject
 {
     private readonly IConfigureService configureService;
+    private readonly IGenerateService generateService;
 
-    public ConfigPageViewModel(IConfigureService configureService)
+    public ConfigPageViewModel(IConfigureService configureService,IGenerateService generateService)
     {
         this.configureService = configureService;
+        this.generateService = generateService;
     }
 
     [ObservableProperty] private string? configName;
@@ -66,5 +68,11 @@ internal partial class ConfigPageViewModel : ObservableObject
         }
 
         Current.Configs.Remove(config);
+    }
+
+    [RelayCommand]
+    private async Task Generate()
+    { 
+        await generateService.Generate(Current);
     }
 }
