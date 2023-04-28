@@ -11,7 +11,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <TextBlock Visibility="{Binding InputType,Converter={StaticResource InputNoArgConverter}}"
+        <TextBlock Visibility="{Binding ArgType,Converter={StaticResource InputNoArgConverter}}"
                        IsEnabled="{Binding IsEnable}"
                        VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
                        Margin="0,12,0,12" FontSize="16"
@@ -19,15 +19,15 @@
             >
         </TextBlock>
         <GroupBox md:ColorZoneAssist.Mode="PrimaryLight"
-                  Visibility="{Binding InputType,Converter={StaticResource InputStringConverter}}"
+                  Visibility="{Binding ArgType,Converter={StaticResource InputStringConverter}}"
                       IsEnabled="{Binding IsEnable}"
                       Style="{StaticResource MaterialDesignGroupBox}"
                       Header="{Binding FieldName,Converter={StaticResource Lang}}">
-            <co:ConfigInput DataContext="{Binding Arg}"></co:ConfigInput>
+            <co:ConfigArg DataContext="{Binding Arg}"></co:ConfigArg>
         </GroupBox>
         <GroupBox 
             md:ColorZoneAssist.Mode="PrimaryLight"
-            Visibility="{Binding InputType,Converter={StaticResource InputMultiStringConverter}}"
+            Visibility="{Binding ArgType,Converter={StaticResource InputMultiStringConverter}}"
             IsEnabled="{Binding IsEnable}"
             Style="{StaticResource MaterialDesignGroupBox}"
             Header="{Binding FieldName,Converter={StaticResource Lang}}">
@@ -40,7 +40,7 @@
                     <DataTemplate >
                         <Border d:DataContext="{d:DesignInstance abs:ConfigItemArgInfo}"
                                 Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}">
-                            <co:ConfigInput></co:ConfigInput>
+                            <co:ConfigArg></co:ConfigArg>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
