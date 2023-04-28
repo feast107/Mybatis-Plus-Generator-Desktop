@@ -14,17 +14,22 @@ public partial class ConfigItemInfo : ObservableObject
         None
     }
 
+    public string FieldName => TemplateItemInfo.FieldName;
     /// <summary>
     /// 关联模板
     /// </summary>
     [ObservableProperty] private TemplateItemInfo templateItemInfo = null!;
-    public string FieldName => TemplateItemInfo.FieldName;
-
-
     [ObservableProperty] private bool isEnable = true;
+    [ObservableProperty] private bool isGenerated;
+    [ObservableProperty] private ObservableCollection<ConfigItemArgInfo> args = null!;
 
-    [ObservableProperty] private bool isGenerated = false;
-
+    public bool HasParam => SelectMethod.GetParameters().Length != 0;
+    public MethodBase SelectMethod
+    {
+        get => selectMethod ??= ChangeSelectMethod(TemplateItemInfo!.Methods[0]);
+        set => ChangeSelectMethod(value);
+    }
+    private MethodBase? selectMethod;
     private MethodBase ChangeSelectMethod(MethodBase method)
     {
         SetProperty(ref selectMethod, method);
@@ -41,13 +46,5 @@ public partial class ConfigItemInfo : ObservableObject
         OnPropertyChanged(nameof(HasParam));
         return method;
     }
-    public bool HasParam => SelectMethod.GetParameters().Length != 0;
-    public MethodBase SelectMethod
-    {
-        get => selectMethod ??= ChangeSelectMethod(TemplateItemInfo!.Methods[0]);
-        set => ChangeSelectMethod(value);
-    }
-    private MethodBase? selectMethod;
-        
-    [ObservableProperty] private ObservableCollection<ConfigItemArgInfo> args = null!;
+
 }
