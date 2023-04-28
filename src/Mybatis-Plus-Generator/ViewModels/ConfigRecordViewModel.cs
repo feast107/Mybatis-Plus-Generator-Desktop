@@ -2,8 +2,9 @@
 
 namespace Mybatis_Plus_Generator.ViewModels
 {
-    internal class ConfigRecordViewModel 
+    internal class ConfigRecordViewModel
         : ConfigRecord<ConfigInfoViewModel, ConfigItemInfoViewModel>
     {
+
     }
 }
