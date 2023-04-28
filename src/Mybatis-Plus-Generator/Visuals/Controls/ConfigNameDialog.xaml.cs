@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace Mybatis_Plus_Generator.Visuals.Controls
+namespace Mybatis_Plus_Generator.Visuals.Controls;
+
+/// <summary>
+/// ConfigNameDialog.xaml 的交互逻辑
+/// </summary>
+public partial class ConfigNameDialog : UserControl
 {
-    /// <summary>
-    /// ConfigNameDialog.xaml 的交互逻辑
-    /// </summary>
-    public partial class ConfigNameDialog : UserControl
+    public ConfigNameDialog()
     {
-        public ConfigNameDialog()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
