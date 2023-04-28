@@ -16,8 +16,10 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <ListBox  md:ListBoxItemAssist.ShowSelection="False"
-                  ItemsSource="{Binding ConfigItems}">
+        <ListBox 
+            VirtualizingPanel.ScrollUnit="Pixel"
+            md:ListBoxItemAssist.ShowSelection="False"
+            ItemsSource="{Binding ConfigItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Visibility="{Binding CanIgnore,Converter={StaticResource InverseBool2VisibilityCollapsedConverter},Mode=OneTime}"
@@ -38,7 +40,7 @@
                                               Style="{StaticResource MaterialDesignSwitchLightToggleButton}"
                                               ToolTip="MaterialDesignSwitchLightToggleButton" />
                             </Grid>
-                            <co:ConfigItem Grid.Column="1"></co:ConfigItem>
+                                <co:ConfigItem Grid.Column="1"></co:ConfigItem>
                             <Grid Grid.Column="2">
                                 <Button  
                                     Visibility="{Binding Condition,Converter={StaticResource ShowAddConverter}}"
