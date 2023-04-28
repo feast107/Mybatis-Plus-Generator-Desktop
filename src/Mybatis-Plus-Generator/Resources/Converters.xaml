@@ -15,4 +15,8 @@
     <co:InputStringConverter x:Key="InputStringConverter" />
     <co:InputMultiStringConverter x:Key="InputMultiStringConverter" />
 
+
+    <co:TypePassword2VisibilityConverter x:Key="TypePassword2VisibilityConverter" />
+    <co:TypeText2VisibilityConverter x:Key="TypeText2VisibilityConverter" />
+    <co:TypeSelect2VisibilityConverter x:Key="TypeSelect2VisibilityConverter"/>
 </ResourceDictionary>
