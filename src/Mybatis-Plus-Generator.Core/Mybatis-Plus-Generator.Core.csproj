@@ -12,13 +12,6 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<!--<IkvmReference Include="..\jar\slf4j-api-1.7.36.jar" />
-		<IkvmReference Include="..\jar\slf4j-reload4j-1.7.36.jar">
-			<References>..\jar\slf4j-api-1.7.36.jar;</References>
-		</IkvmReference>
-		<IkvmReference Include="..\jar\mybatis-plus-generator-3.5.3.1.jar">
-			<References>..\jar\slf4j-reload4j-1.7.36.jar;..\jar\slf4j-api-1.7.36.jar</References>
-		</IkvmReference>-->
 		<IkvmReference Include="..\java\target\mybatis-plus-generator-ref.jar">
 			<AssemblyName>mybatis-plus-generator-ref</AssemblyName>
 			<AssemblyVersion>1.0.0.0</AssemblyVersion>
