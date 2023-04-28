@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>Mybatis_Plus_Generator.Test</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Mybatis-Plus-Generator.Core\Mybatis-Plus-Generator.Core.csproj" />
     <ProjectReference Include="..\Mybatis-Plus-Generator.Definition\Mybatis-Plus-Generator.Definition.csproj" />
+    <ProjectReference Include="..\Mybatis-Plus-Generator\Mybatis-Plus-Generator.csproj" />
   </ItemGroup>
 
 </Project>
