@@ -7,5 +7,5 @@ public interface IGenerateService<in TConfigRecord, TConfigInfo, TConfigItemInfo
     where TConfigInfo : ConfigInfo<TConfigItemInfo>
     where TConfigItemInfo : ConfigItemInfo
 {
-    Task<bool> Generate(TConfigRecord record);
+    Task Generate(TConfigRecord record);
 }
