@@ -21,4 +21,10 @@ public interface ITemplateService
     /// 可选的模板信息
     /// </summary>
     ObservableCollection<TemplateInfo> AdditionalTemplates { get; }
+    /// <summary>
+    /// 获取配置函数
+    /// </summary>
+    /// <param name="configType"></param>
+    /// <returns></returns>
+    MethodInfo GetConfigMethod(Type configType);
 }
