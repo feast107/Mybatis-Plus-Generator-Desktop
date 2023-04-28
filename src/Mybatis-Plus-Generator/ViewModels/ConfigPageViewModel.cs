@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MaterialDesignThemes.Wpf;
 using Mybatis_Plus_Generator.Definition.Abstractions;
@@ -72,7 +73,14 @@ internal partial class ConfigPageViewModel : ObservableObject
 
     [RelayCommand]
     private async Task Generate()
-    { 
-        await generateService.Generate(Current);
+    {
+        try
+        {
+            await generateService.Generate(Current);
+        }
+        catch (Exception e)
+        {
+            await SimpleDialog.Show(e.InnerException?.Message ?? e.Message, "NewConfig");
+        }
     }
 }
