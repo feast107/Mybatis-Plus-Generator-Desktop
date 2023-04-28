@@ -79,6 +79,60 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 添加排除 的本地化字符串。
+        /// </summary>
+        public static string addExclude {
+            get {
+                return ResourceManager.GetString("addExclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 添加字段前缀 的本地化字符串。
+        /// </summary>
+        public static string addFieldPrefix {
+            get {
+                return ResourceManager.GetString("addFieldPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 添加字段后缀 的本地化字符串。
+        /// </summary>
+        public static string addFieldSuffix {
+            get {
+                return ResourceManager.GetString("addFieldSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 添加包含 的本地化字符串。
+        /// </summary>
+        public static string addInclude {
+            get {
+                return ResourceManager.GetString("addInclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 添加表前缀 的本地化字符串。
+        /// </summary>
+        public static string addTablePrefix {
+            get {
+                return ResourceManager.GetString("addTablePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 添加表后缀 的本地化字符串。
+        /// </summary>
+        public static string addTableSuffix {
+            get {
+                return ResourceManager.GetString("addTableSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 作者 的本地化字符串。
         /// </summary>
         public static string author {
@@ -156,6 +210,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string controller {
             get {
                 return ResourceManager.GetString("controller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 控制器模板 的本地化字符串。
+        /// </summary>
+        public static string controllerTemplate {
+            get {
+                return ResourceManager.GetString("controllerTemplate", resourceCulture);
             }
         }
         
@@ -241,11 +304,38 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 禁用Sql过滤 的本地化字符串。
+        /// </summary>
+        public static string disableSqlFilter {
+            get {
+                return ResourceManager.GetString("disableSqlFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用大写模式 的本地化字符串。
+        /// </summary>
+        public static string enableCapitalModel {
+            get {
+                return ResourceManager.GetString("enableCapitalModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 启用Kotlin 的本地化字符串。
         /// </summary>
         public static string enableKotlin {
             get {
                 return ResourceManager.GetString("enableKotlin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用略过视图 的本地化字符串。
+        /// </summary>
+        public static string enableSkipView {
+            get {
+                return ResourceManager.GetString("enableSkipView", resourceCulture);
             }
         }
         
@@ -277,6 +367,33 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 领域类模板 的本地化字符串。
+        /// </summary>
+        public static string entityTemplate {
+            get {
+                return ResourceManager.GetString("entityTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 字段前缀 的本地化字符串。
+        /// </summary>
+        public static string fieldPrefix {
+            get {
+                return ResourceManager.GetString("fieldPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 字段后缀列表 的本地化字符串。
+        /// </summary>
+        public static string fieldSuffixList {
+            get {
+                return ResourceManager.GetString("fieldSuffixList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 文件覆写 的本地化字符串。
         /// </summary>
         public static string fileOverride {
@@ -291,6 +408,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string GlobalConfig {
             get {
                 return ResourceManager.GetString("GlobalConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 包含 的本地化字符串。
+        /// </summary>
+        public static string include {
+            get {
+                return ResourceManager.GetString("include", resourceCulture);
             }
         }
         
@@ -327,6 +453,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string mapper {
             get {
                 return ResourceManager.GetString("mapper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 映射器模板 的本地化字符串。
+        /// </summary>
+        public static string mapperTemplate {
+            get {
+                return ResourceManager.GetString("mapperTemplate", resourceCulture);
             }
         }
         
@@ -376,6 +511,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 密码 的本地化字符串。
+        /// </summary>
+        public static string password {
+            get {
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 路径信息 的本地化字符串。
         /// </summary>
         public static string pathInfo {
@@ -412,11 +556,47 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 服务实现模板 的本地化字符串。
+        /// </summary>
+        public static string serviceImplTemplate {
+            get {
+                return ResourceManager.GetString("serviceImplTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 服务接口模板 的本地化字符串。
+        /// </summary>
+        public static string serviceTemplate {
+            get {
+                return ResourceManager.GetString("serviceTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 策略配置 的本地化字符串。
         /// </summary>
         public static string StrategyConfig {
             get {
                 return ResourceManager.GetString("StrategyConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表前缀列表 的本地化字符串。
+        /// </summary>
+        public static string tablePrefixList {
+            get {
+                return ResourceManager.GetString("tablePrefixList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表后缀列表 的本地化字符串。
+        /// </summary>
+        public static string tableSuffixList {
+            get {
+                return ResourceManager.GetString("tableSuffixList", resourceCulture);
             }
         }
         
@@ -448,6 +628,24 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 Url 的本地化字符串。
+        /// </summary>
+        public static string url {
+            get {
+                return ResourceManager.GetString("url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名 的本地化字符串。
+        /// </summary>
+        public static string username {
+            get {
+                return ResourceManager.GetString("username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 值 的本地化字符串。
         /// </summary>
         public static string value {
@@ -462,6 +660,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string xml {
             get {
                 return ResourceManager.GetString("xml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Xml模板 的本地化字符串。
+        /// </summary>
+        public static string xmlTemplate {
+            get {
+                return ResourceManager.GetString("xmlTemplate", resourceCulture);
             }
         }
     }
