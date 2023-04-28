@@ -8,37 +8,42 @@ namespace Mybatis_Plus_Generator.Definition.Abstractions;
 
 public partial class ConfigItemArgInfo : ObservableObject
 {
-    public Type ArgType
+    public ConfigItemArgInfo()
     {
-        get => argType;
-        set
+        PropertyChanged += (_, e) =>
         {
-            argType = value;
-            switch (value)
+            switch (e.PropertyName)
             {
-                case { IsInterface: true }:
-                    Candidates = Assembly
-                        .GetAssembly(value)
-                        .ExportedTypes
-                        .Aggregate(new ObservableCollection<Type>(),
-                            (o, c) =>
-                            {
-                                if (!c.IsClass || !value.IsAssignableFrom(c)) return o;
-                                o.Add(c);
-                                return o;
-                            });
+                case nameof(ArgType):
+                    switch (ArgType)
+                    {
+                        case { IsInterface: true }:
+                            Candidates = Assembly
+                                .GetAssembly(ArgType)
+                                .ExportedTypes
+                                .Aggregate(new ObservableCollection<Type>(),
+                                    (o, c) =>
+                                    {
+                                        if (!c.IsClass || !ArgType.IsAssignableFrom(c)) return o;
+                                        o.Add(c);
+                                        return o;
+                                    });
+                            break;
+                    }
                     break;
             }
-        }
+        };
     }
-    private Type argType = null!;
+    
 
     public object ArgValue
     {
-        get => argValue;
+        get => argValue ??= string.Empty;
         set => SetProperty(ref argValue, value);
     }
     private object? argValue;
+
+    [ObservableProperty] private Type argType = null!;
     [ObservableProperty] private string argName = string.Empty;
     [ObservableProperty] private ObservableCollection<Type>? candidates;
 
