@@ -8,6 +8,7 @@ using Mybatis_Plus_Generator.Visuals.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Mybatis_Plus_Generator.Visuals.Controls.Dialogs;
 
 namespace Mybatis_Plus_Generator.ViewModels;
 
