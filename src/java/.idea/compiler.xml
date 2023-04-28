@@ -14,7 +14,7 @@
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xplugin:Manifold " />
+    <option name="ADDITIONAL_OPTIONS_STRING" value=" " />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="java-extension" options="&quot;-Xplugin:Manifold no-bootstrap&quot;" />
       <module name="mybatis-plus-generator-ref" options="" />
