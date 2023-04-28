@@ -6,18 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Mybatis_Plus_Generator.Converters
-{
-    internal class TypeDescribeConverter : IValueConverter
-    {
-        public object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return new LangConverter().Convert(value, targetType, parameter, culture);
-        }
+namespace Mybatis_Plus_Generator.Converters;
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
-        }
+internal class TypeDescribeConverter : IValueConverter
+{
+    public object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
+    {
+        return new LangConverter().Convert(value, targetType, parameter, culture);
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotSupportedException();
     }
 }
