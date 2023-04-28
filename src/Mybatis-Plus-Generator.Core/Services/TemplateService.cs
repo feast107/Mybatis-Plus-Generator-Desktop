@@ -78,7 +78,6 @@ namespace Mybatis_Plus_Generator.Core.Services
                             AllowMultiple = false,
                             FieldName = type.Name,
                             IsCtor = true,
-                            Methods = {}
                         }, (o, c) =>
                         {
                             o.Methods.Add(c); return o;
