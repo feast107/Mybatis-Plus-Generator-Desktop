@@ -9,16 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator.Definition", "Mybatis-Plus-Generator.Definition\Mybatis-Plus-Generator.Definition.csproj", "{4DF07664-40DE-4A36-9ED8-13B2FD930A07}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jar", "jar", "{72E5FF53-FC33-4CF9-A42F-73907B1B02BD}"
-	ProjectSection(SolutionItems) = preProject
-		jar\mybatis-plus-generator-3.5.3.1.jar = jar\mybatis-plus-generator-3.5.3.1.jar
-		jar\slf4j-api-1.7.36.jar = jar\slf4j-api-1.7.36.jar
-		jar\slf4j-api-2.0.7.jar = jar\slf4j-api-2.0.7.jar
-		jar\slf4j-reload4j-1.7.36.jar = jar\slf4j-reload4j-1.7.36.jar
-		jar\slf4j-reload4j-2.0.7.jar = jar\slf4j-reload4j-2.0.7.jar
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mybatis-Plus-Generator.Test", "Mybatis-Plus-Generator.Test\Mybatis-Plus-Generator.Test.csproj", "{64665B55-3BC2-46E4-AE77-747E80F914C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mybatis-Plus-Generator.Test", "Mybatis-Plus-Generator.Test\Mybatis-Plus-Generator.Test.csproj", "{64665B55-3BC2-46E4-AE77-747E80F914C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
