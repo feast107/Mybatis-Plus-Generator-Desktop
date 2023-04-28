@@ -24,11 +24,11 @@ internal partial class ConfigInfoViewModel : ConfigInfo<ConfigItemInfoViewModel>
     {
         for (var i = 0; i < base.ConfigItems.Count; i++)
         {
-            if (ConfigItems[i].TemplateInfo == templateItem)
+            if (ConfigItems[i].TemplateItemInfo == templateItem)
             {
                 ConfigItems.Insert(i + 1, new ConfigItemInfoViewModel()
                 {
-                    TemplateInfo = templateItem,
+                    TemplateItemInfo = templateItem,
                     IsGenerated = true,
                 });
                 return;
