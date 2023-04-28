@@ -35,6 +35,11 @@ internal class ConfigureService<TConfigRecord,TConfigInfo, TConfigItemInfo>
                 .ToArray();
     }
 
+    public object Apply(object config, TConfigInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
     public TConfigRecord CreateRecord(string name)
     {
         var record = Records.FirstOrDefault(x => x.ConfigName == name);
@@ -60,7 +65,7 @@ internal class ConfigureService<TConfigRecord,TConfigInfo, TConfigItemInfo>
         config.ConfigItems = template.Fields.Aggregate(new ObservableCollection<TConfigItemInfo>(), (o, e) =>
         {
             var info = Core.Provider.GetRequiredService<TConfigItemInfo>();
-            info.TemplateInfo = e;
+            info.TemplateItemInfo = e;
             info.SelectMethod = e.Methods[0];
             o.Add(info);
             return o;
