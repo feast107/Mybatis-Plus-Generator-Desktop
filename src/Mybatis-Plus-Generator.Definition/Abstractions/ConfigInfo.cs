@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -20,4 +21,10 @@ public partial class ConfigInfo<TConfigItemInfo> : ObservableObject where TConfi
     /// 配置名称
     /// </summary>
     [ObservableProperty] private string configName = null!;
+
+    /// <summary>
+    /// 配置类型
+    /// </summary>
+    public Type ConfigType => TemplateInfo.ConfigType;
+
 }
