@@ -7,6 +7,11 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	  <LangVersion>preview</LangVersion>
+	  <SignAssembly>False</SignAssembly>
+	  <Authors>Feast</Authors>
+	  <PackageProjectUrl>https://github.com/feast107/Mybatis-Plus-Generator-Desktop</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/feast107/Mybatis-Plus-Generator-Desktop.git</RepositoryUrl>
+	  <StartupObject>Mybatis_Plus_Generator.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +30,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Update="Langs\LangProvider.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LangProvider.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -33,8 +43,7 @@
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Langs\Lang.en.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-	    <DependentUpon>Lang.resx</DependentUpon>
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
 
@@ -44,6 +53,13 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Langs\LangProvider.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangProvider.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
