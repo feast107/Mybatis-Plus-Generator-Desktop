@@ -164,7 +164,7 @@ namespace Mybatis_Plus_Generator.Langs {
         /// </summary>
         public static string Can_not_delete_fixed_config {
             get {
-                return ResourceManager.GetString("Can not delete fixed config", resourceCulture);
+                return ResourceManager.GetString("Can_not_delete_fixed_config", resourceCulture);
             }
         }
         
@@ -174,6 +174,15 @@ namespace Mybatis_Plus_Generator.Langs {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中文 的本地化字符串。
+        /// </summary>
+        public static string Chinese__China_ {
+            get {
+                return ResourceManager.GetString("Chinese (China)", resourceCulture);
             }
         }
         
@@ -358,6 +367,15 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
+        ///   查找类似 English 的本地化字符串。
+        /// </summary>
+        public static string English__United_States_ {
+            get {
+                return ResourceManager.GetString("English (United States)", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 领域类 的本地化字符串。
         /// </summary>
         public static string entity {
@@ -439,7 +457,16 @@ namespace Mybatis_Plus_Generator.Langs {
         }
         
         /// <summary>
-        ///   查找类似 中文 的本地化字符串。
+        ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
+        /// </summary>
+        public static string LangComment {
+            get {
+                return ResourceManager.GetString("LangComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 语言 的本地化字符串。
         /// </summary>
         public static string Language {
             get {
