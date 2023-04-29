@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Mybatis_Plus_Generator.ViewModels;
-using System.Windows;
-using Mybatis_Plus_Generator.Core.Extensions;
+﻿using Mybatis_Plus_Generator.Core.Extensions;
 using Mybatis_Plus_Generator.Extension;
+using Mybatis_Plus_Generator.Langs;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Markup;
 
 namespace Mybatis_Plus_Generator;
 
@@ -13,8 +14,18 @@ public partial class App : Application
 {
     public App()
     {
+        
+    }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
         Core.Core.Services.AddDefaultService();
         Core.Core.Services.AddViewModels();
         Core.Core.Build();
+        var lang ="en";
+        LangProvider.Culture = new CultureInfo("zh");
+        Application.Current.Dispatcher.Thread.CurrentUICulture = LangProvider.Culture;
+        LangProvider.Culture = new CultureInfo(lang);
     }
 }
