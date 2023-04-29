@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<IkvmReference Include="..\java\target\mybatis-plus-generator-ref.jar">
-			<AssemblyName>mybatis-plus-generator-ref</AssemblyName>
+			<AssemblyName>Mybatis-Plus-Generator-Api</AssemblyName>
 			<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		</IkvmReference>
 	</ItemGroup>
