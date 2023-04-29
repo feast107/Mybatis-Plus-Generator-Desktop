@@ -7,6 +7,8 @@
       xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
       xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
       xmlns:pages="clr-namespace:Mybatis_Plus_Generator.Visuals.Pages"
+      xmlns:ex="clr-namespace:Mybatis_Plus_Generator.Extension"
+      xmlns:lang="clr-namespace:Mybatis_Plus_Generator.Langs"
       mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigPageViewModel}"
         Title="MainPage" >
     <Grid>
@@ -14,36 +16,58 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ToolBarTray Grid.Row="0">
-            <ToolBar
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ToolBarTray Grid.Column="0">
+                <ToolBar
                 ClipToBounds="False"
                 Style="{StaticResource MaterialDesignToolBar}">
-                <Button Command="{Binding GenerateCommand}"
+                    <Button Command="{Binding GenerateCommand}"
                     Content="{md:PackIcon Kind=PlayCircleOutline}"
                     ToolTip="Follow me on Twitter" />
-                <Button
+                    <Button
                     Content="{md:PackIcon Kind=ContentSave}"
                     ToolTip="Save" />
-                <Separator />
-                <Button
+                    <Separator />
+                    <Button
                     Command="Cut"
                     Content="{md:PackIcon Kind=ContentCut}"
                     ToolBar.OverflowMode="AsNeeded"
                     ToolTip="Cut" />
-                <Button
+                    <Button
                     Command="Copy"
                     Content="{md:PackIcon Kind=ContentCopy}"
                     ToolBar.OverflowMode="AsNeeded"
                     ToolTip="Copy that stuff" />
-                <Separator />
-                <Button
+                    <Button
                     Command="Paste"
                     Content="{md:PackIcon Kind=ContentPaste}"
                     ToolBar.OverflowMode="AsNeeded"
                     ToolTip="Paste some stuff" />
-            </ToolBar>
+                </ToolBar>
+            </ToolBarTray>
+            <ToolBarTray Grid.Column="1" HorizontalAlignment="Right">
+                <ToolBar  Height="60" >
+                    <ComboBox FontSize="16"
+                        Width="100"
+                        Margin="8,0"
+                        SelectedItem="{Binding Language}"
+                        ItemsSource="{Binding Cultures}"
+                        md:HintAssist.Hint="{ex:Lang Key={x:Static lang:LangKeys.Language}}"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding  EnglishName,Converter={StaticResource Lang}}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </ToolBar>
+            </ToolBarTray>
+        </Grid>
 
-        </ToolBarTray>
         <Grid Grid.Row="1">
             <TabControl Grid.Row="0" SelectedIndex="{Binding Current.Configs.Count,Converter={StaticResource IndexConverter},Mode=OneWay}"  
                         ItemsSource="{Binding Current.Configs}" 
@@ -71,7 +95,7 @@
                     </ContextMenu>
                 </TabControl.ContextMenu>
 
-                
+
                 <TabControl.ItemContainerStyle>
                     <Style TargetType="TabItem" BasedOn="{StaticResource MaterialDesignTabItem}">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
