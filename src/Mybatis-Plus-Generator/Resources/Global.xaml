@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:langs="clr-namespace:Mybatis_Plus_Generator.Langs">
+    <langs:LangProvider x:Key="Langs" />
+</ResourceDictionary>
