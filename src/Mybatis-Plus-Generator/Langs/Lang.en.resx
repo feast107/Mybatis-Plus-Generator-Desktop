@@ -117,13 +117,211 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="addConnectionProperty" xml:space="preserve">
+    <value>AddConnectionProperty</value>
+  </data>
+  <data name="addExclude" xml:space="preserve">
+    <value>AddExclude</value>
+  </data>
+  <data name="addFieldPrefix" xml:space="preserve">
+    <value>AddFieldPrefix</value>
+  </data>
+  <data name="addFieldSuffix" xml:space="preserve">
+    <value>AddFieldSuffix</value>
+  </data>
+  <data name="addInclude" xml:space="preserve">
+    <value>AddInclude</value>
+  </data>
+  <data name="addTablePrefix" xml:space="preserve">
+    <value>AddTablePrefix</value>
+  </data>
+  <data name="addTableSuffix" xml:space="preserve">
+    <value>AddTableSuffix</value>
+  </data>
+  <data name="author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="beforeOutputFile" xml:space="preserve">
+    <value>BeforeOutputFile</value>
+  </data>
+  <data name="Builder" xml:space="preserve">
+    <value>Builder</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Can_not_delete_fixed_config" xml:space="preserve">
+    <value>Can not delete fixed config</value>
+  </data>
+  <data name="commentDate" xml:space="preserve">
+    <value>CommentDate</value>
+  </data>
+  <data name="Config name exists" xml:space="preserve">
+    <value>Config name exists</value>
+  </data>
+  <data name="ConfigName" xml:space="preserve">
+    <value>ConfigName</value>
+  </data>
+  <data name="controller" xml:space="preserve">
+    <value>Controller</value>
+  </data>
+  <data name="controllerTemplate" xml:space="preserve">
+    <value>ControllerTemplate</value>
+  </data>
+  <data name="customFile" xml:space="preserve">
+    <value>CustomFile</value>
+  </data>
+  <data name="customMap" xml:space="preserve">
+    <value>CustomMap</value>
+  </data>
+  <data name="databaseQueryClass" xml:space="preserve">
+    <value>DatabaseQueryClass</value>
+  </data>
   <data name="DataSourceConfig" xml:space="preserve">
     <value>DataSourceConfig</value>
+  </data>
+  <data name="dateType" xml:space="preserve">
+    <value>DateType</value>
+  </data>
+  <data name="dbQuery" xml:space="preserve">
+    <value>DbQuery</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="disableOpenDir" xml:space="preserve">
+    <value>DisableOpenDir</value>
+  </data>
+  <data name="disableServiceInterface" xml:space="preserve">
+    <value>DisableServiceInterface</value>
+  </data>
+  <data name="disableSqlFilter" xml:space="preserve">
+    <value>DisableSqlFilter</value>
+  </data>
+  <data name="enableCapitalMode" xml:space="preserve">
+    <value>EnableCapitalMode</value>
+  </data>
+  <data name="enableKotlin" xml:space="preserve">
+    <value>EnableKotlin</value>
+  </data>
+  <data name="enableSkipView" xml:space="preserve">
+    <value>EnableSkipView</value>
+  </data>
+  <data name="enableSpringdoc" xml:space="preserve">
+    <value>EnableSpringdoc</value>
+  </data>
+  <data name="enableSwagger" xml:space="preserve">
+    <value>EnableSwagger</value>
+  </data>
+  <data name="entity" xml:space="preserve">
+    <value>Entity</value>
+  </data>
+  <data name="entityTemplate" xml:space="preserve">
+    <value>EntityTemplate</value>
+  </data>
+  <data name="fieldPrefix" xml:space="preserve">
+    <value>FieldPrefix</value>
+  </data>
+  <data name="fieldSuffixList" xml:space="preserve">
+    <value>FieldSuffixList</value>
+  </data>
+  <data name="fileOverride" xml:space="preserve">
+    <value>FileOverride</value>
+  </data>
+  <data name="GlobalConfig" xml:space="preserve">
+    <value>GlobalConfig</value>
+  </data>
+  <data name="include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="InjectionConfig" xml:space="preserve">
+    <value>InjectionConfig</value>
+  </data>
+  <data name="key" xml:space="preserve">
+    <value>Key</value>
   </data>
   <data name="LangComment" xml:space="preserve">
     <value>Looks up a localized string similar to "{0}".</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>English</value>
+    <value>Language</value>
+  </data>
+  <data name="mapper" xml:space="preserve">
+    <value>Mapper</value>
+  </data>
+  <data name="mapperTemplate" xml:space="preserve">
+    <value>MapperTemplate</value>
+  </data>
+  <data name="moduleName" xml:space="preserve">
+    <value>ModuleName</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="outputDir" xml:space="preserve">
+    <value>OutputDir</value>
+  </data>
+  <data name="PackageConfig" xml:space="preserve">
+    <value>PackageConfig</value>
+  </data>
+  <data name="parent" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="pathInfo" xml:space="preserve">
+    <value>PathInfo</value>
+  </data>
+  <data name="Please provide config name" xml:space="preserve">
+    <value>Please provide config name</value>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="serviceImpl" xml:space="preserve">
+    <value>ServiceImpl</value>
+  </data>
+  <data name="serviceImplTemplate" xml:space="preserve">
+    <value>ServiceImplTemplate</value>
+  </data>
+  <data name="serviceTemplate" xml:space="preserve">
+    <value>ServiceTemplate</value>
+  </data>
+  <data name="StrategyConfig" xml:space="preserve">
+    <value>StrategyConfig</value>
+  </data>
+  <data name="tablePrefixList" xml:space="preserve">
+    <value>TablePrefixList</value>
+  </data>
+  <data name="tableSuffixList" xml:space="preserve">
+    <value>TableSuffixList</value>
+  </data>
+  <data name="TemplateConfig" xml:space="preserve">
+    <value>TemplateConfig</value>
+  </data>
+  <data name="typeConvert" xml:space="preserve">
+    <value>TypeConvert</value>
+  </data>
+  <data name="typeConvertHandler" xml:space="preserve">
+    <value>TypeConvertHandler</value>
+  </data>
+  <data name="url" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="xml" xml:space="preserve">
+    <value>Xml</value>
+  </data>
+  <data name="xmlTemplate" xml:space="preserve">
+    <value>XmlTemplate</value>
   </data>
 </root>
