@@ -86,6 +86,7 @@ internal partial class ConfigPageViewModel : ObservableObject
         if (config.Equals(Current!.FixedConfig))
         {
             await SimpleDialog.Show(LangKeys.Can_not_delete_fixed_config,"NewConfig");
+            return;
         }
 
         Current.Configs.Remove(config);
