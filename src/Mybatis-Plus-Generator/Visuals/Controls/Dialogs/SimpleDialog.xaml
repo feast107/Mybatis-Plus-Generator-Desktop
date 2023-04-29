@@ -6,20 +6,20 @@
              xmlns:local="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:ex="clr-namespace:Mybatis_Plus_Generator.Extension"
+             xmlns:lang="clr-namespace:Mybatis_Plus_Generator.Langs"
              MaxWidth="300"
              mc:Ignorable="d" >
-    <UserControl.Resources>
-        <system:String x:Key="Confirm">OK</system:String>
-    </UserControl.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
             <TextBlock Margin="16,16,16,0" TextWrapping="Wrap" Name="Text" 
-                       Text="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Lang}}" />
+                       Text="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Lang}}" 
+                       />
             <Button Margin="16"
                     Command="{x:Static md:DialogHost.CloseDialogCommand}"
-                    Content="{Binding .,RelativeSource={RelativeSource Self},Converter={StaticResource Lang},ConverterParameter={StaticResource Confirm}}"
+                    Content="{ex:Lang Key={x:Static lang:LangKeys.Accept}}"
                     IsCancel="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand">
                 <Button.CommandParameter>
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
