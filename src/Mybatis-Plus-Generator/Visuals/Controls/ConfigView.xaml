@@ -29,7 +29,8 @@
             ItemsSource="{Binding ConfigItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Visibility="{Binding CanIgnore,Converter={StaticResource InverseBool2VisibilityCollapsedConverter},Mode=OneTime}"
+                    <Border 
+                        Visibility="{Binding CanIgnore,Converter={StaticResource InverseBool2VisibilityCollapsedConverter},Mode=OneTime}"
                         Padding="0,0,32,0" Height="Auto" 
                         Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}">
                         <Grid Margin="0,0,0,0">
