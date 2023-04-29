@@ -89,7 +89,7 @@
                         </ContextMenu.ItemContainerStyle>
                         <ContextMenu.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name ,Converter={StaticResource Lang}}" />
+                                <TextBlock HorizontalAlignment="Center" Text="{ex:Lang Key={Binding Name}}" />
                             </DataTemplate>
                         </ContextMenu.ItemTemplate>
                     </ContextMenu>
@@ -115,7 +115,7 @@
                             <StackPanel 
                                 HorizontalAlignment="Center"  Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" Margin="20,0"
-                                           Text="{Binding ConfigName,Converter={StaticResource Lang}}">
+                                           Text="{ex:Lang Key={Binding ConfigName}}">
                                 </TextBlock>
                             </StackPanel>
                             <Button x:Name="CloseButton" 
