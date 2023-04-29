@@ -150,11 +150,14 @@
   <data name="Builder" xml:space="preserve">
     <value>构造器</value>
   </data>
-  <data name="Can not delete fixed config" xml:space="preserve">
-    <value>无法删除固定配置</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="Can_not_delete_fixed_config" xml:space="preserve">
+    <value>无法删除固定配置</value>
+  </data>
+  <data name="Chinese (China)" xml:space="preserve">
+    <value>中文</value>
   </data>
   <data name="commentDate" xml:space="preserve">
     <value>注释日期</value>
@@ -216,6 +219,9 @@
   <data name="enableSwagger" xml:space="preserve">
     <value>启用Swagger</value>
   </data>
+  <data name="English (United States)" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="entity" xml:space="preserve">
     <value>领域类</value>
   </data>
@@ -243,8 +249,11 @@
   <data name="key" xml:space="preserve">
     <value>键</value>
   </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>查找类似 {0} 的本地化字符串。</value>
+  </data>
   <data name="Language" xml:space="preserve">
-    <value>中文</value>
+    <value>语言</value>
   </data>
   <data name="mapper" xml:space="preserve">
     <value>映射器</value>
