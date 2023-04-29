@@ -14,8 +14,8 @@ public class LangConverter : IValueConverter
             switch (value)
             {
                 case string key:
-                    return Langs.Lang.ResourceManager.GetString(key) ?? key;
-                case UIElement ui:
+                    return Langs.Lang.ResourceManager.GetString(key,culture) ?? key;
+                case UIElement:
                     return Langs.Lang.ResourceManager.GetString(parameter.ToString() ?? string.Empty) ?? string.Empty;
             }
         }
