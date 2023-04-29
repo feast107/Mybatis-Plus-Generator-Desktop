@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -9,11 +12,12 @@ namespace Mybatis_Plus_Generator.Extension;
 public class LangExtension : MarkupExtension
 {
     private readonly DependencyObject proxy;
-
+    private readonly HashSet<string> Keys;
     public LangExtension()
     {
         proxy = new DependencyObject();
         Source = LangProvider.Instance;
+        Keys = typeof(LangKeys).GetFields().Select(x => x.Name).ToHashSet();
     }
 
     public LangExtension(string key) : this()
@@ -144,7 +148,15 @@ public class LangExtension : MarkupExtension
         Converter = Converter,
         ConverterParameter = ConverterParameter,
         UpdateSourceTrigger = UpdateSourceTrigger.Explicit,
-        Source = Source,
+        Source = Keys.Contains(key) ? Source : Dynamic(key),
         Mode = BindingMode.OneWay
     };
+
+    private object Dynamic(string key)
+    {
+        var ret = new ExpandoObject();
+        IDictionary<string, object> asDic = ret!;
+        asDic[key] = key;
+        return ret;
+    }
 }
