@@ -7,6 +7,7 @@
              xmlns:vm="clr-namespace:Mybatis_Plus_Generator.ViewModels"
              xmlns:abs="clr-namespace:Mybatis_Plus_Generator.Definition.Abstractions;assembly=Mybatis-Plus-Generator.Definition"
              xmlns:co="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
+             xmlns:ex="clr-namespace:Mybatis_Plus_Generator.Extension"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:ConfigItemInfoViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -15,7 +16,7 @@
             IsEnabled="{Binding IsEnable}"
             VerticalAlignment="Top" Style="{StaticResource MaterialDesignTextBlock}"
             Margin="0,12,0,12" FontSize="16"
-            Text="{Binding FieldName,Converter={StaticResource Lang}}">
+            Text="{ex:Lang Key={Binding FieldName}}">
         </TextBlock>
         <GroupBox 
             Visibility="{Binding ArgType,Converter={StaticResource InputStringConverter}}"
@@ -23,21 +24,21 @@
             IsEnabled="{Binding IsEnable}"
             Style="{StaticResource MaterialDesignGroupBox}" FontSize="16">
             <GroupBox.Header>
-                    <Grid>
-                        <TextBlock 
+                <Grid>
+                    <TextBlock 
                                 VerticalAlignment="Center"
-                                Text="{Binding  FieldName,Converter={StaticResource Lang}}" />
+                                Text="{ex:Lang Key={Binding FieldName}}" />
                     <Button Visibility="{Binding CanChangeSelect,Converter={StaticResource Bool2VisibilityCollapsedConverter}}"
                                 Command="{Binding NextMethodCommand}"
                                 HorizontalAlignment="Right" 
                                 Height="32" Width="56" Padding="0">
-                            <md:PackIcon 
+                        <md:PackIcon 
                                     Height="28" Width="28"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
                                     Kind="Exchange" />
-                        </Button>
-                    </Grid>
+                    </Button>
+                </Grid>
             </GroupBox.Header>
             <co:ConfigArg DataContext="{Binding Arg}" />
         </GroupBox>
@@ -51,7 +52,8 @@
                 <Grid>
                     <TextBlock 
                         VerticalAlignment="Center"
-                        Text="{Binding  FieldName,Converter={StaticResource Lang}}" />
+                        Text="{ex:Lang Key={Binding FieldName}}"
+                        />
                     <Button Visibility="{Binding CanChangeSelect,Converter={StaticResource Bool2VisibilityCollapsedConverter}}"
                             Command="{Binding NextMethodCommand}"
                             HorizontalAlignment="Right" 
