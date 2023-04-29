@@ -6,8 +6,11 @@ using Mybatis_Plus_Generator.Definition.Abstractions;
 using Mybatis_Plus_Generator.Langs;
 using Mybatis_Plus_Generator.Visuals.Controls;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using Mybatis_Plus_Generator.Visuals.Controls.Dialogs;
 
 namespace Mybatis_Plus_Generator.ViewModels;
@@ -35,6 +38,25 @@ internal partial class ConfigPageViewModel : ObservableObject
 
     private ConfigRecordViewModel? current;
 
+    [ObservableProperty] private ObservableCollection<CultureInfo> cultures = new()
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("zh-CN")
+    };
+
+    public CultureInfo Language
+    {
+        get => language;
+        set
+        {
+            if (value.EnglishName == Language.EnglishName) return;
+            Application.Current.Dispatcher.Thread.CurrentUICulture = value;
+            LangProvider.Culture = value;
+            language = value;
+        }
+    }
+
+    private CultureInfo language = Application.Current.Dispatcher.Thread.CurrentUICulture;
 
     [RelayCommand]
     private async Task SelectTemplate(TemplateInfo template)
@@ -63,10 +85,7 @@ internal partial class ConfigPageViewModel : ObservableObject
     {
         if (config.Equals(Current!.FixedConfig))
         {
-            await DialogHost.Show(
-                new SimpleDialog(Lang.Can_not_delete_fixed_config),
-                "NewConfig");
-            return;
+            await SimpleDialog.Show(LangKeys.Can_not_delete_fixed_config,"NewConfig");
         }
 
         Current.Configs.Remove(config);
