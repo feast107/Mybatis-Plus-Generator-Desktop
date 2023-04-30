@@ -9,15 +9,21 @@ using Mybatis_Plus_Generator.Langs;
 
 namespace Mybatis_Plus_Generator.Extension;
 
-public class LangExtension : MarkupExtension
+public class LangExtension : MarkupExtension 
 {
     private readonly DependencyObject proxy;
-    private readonly HashSet<string> Keys;
+    private readonly HashSet<string> keys;
+    private static readonly ExpandoObject Target = new ();
     public LangExtension()
     {
         proxy = new DependencyObject();
         Source = LangProvider.Instance;
-        Keys = typeof(LangKeys).GetFields().Select(x => x.Name).ToHashSet();
+        keys = typeof(LangKeys).GetFields().Select(x => x.Name).ToHashSet();
+        var ps = typeof(LangProvider);
+        LangProvider.Instance.PropertyChanged += (o, e) =>
+        {
+            ((IDictionary<string, object>)Target!)[e.PropertyName!] = typeof(LangProvider).GetProperty(e.PropertyName!)!.GetValue(o)!;
+        };
     }
 
     public LangExtension(string key) : this()
@@ -28,11 +34,13 @@ public class LangExtension : MarkupExtension
     public static readonly DependencyProperty KeyProperty = DependencyProperty.RegisterAttached(
         nameof(Key), typeof(object), typeof(LangExtension), new PropertyMetadata(default));
     
-    public object Key
+    public object? Key
     {
         get => proxy.GetValue(KeyProperty);
         set => proxy.SetValue(KeyProperty, value);
     }
+    
+    public PropertyPath? Binding { get; set; }
 
     private static readonly DependencyProperty TargetPropertyProperty = DependencyProperty.RegisterAttached(
         "TargetProperty", typeof(DependencyProperty), typeof(LangExtension), new PropertyMetadata(default(DependencyProperty)));
@@ -148,15 +156,17 @@ public class LangExtension : MarkupExtension
         Converter = Converter,
         ConverterParameter = ConverterParameter,
         UpdateSourceTrigger = UpdateSourceTrigger.Explicit,
-        Source = Keys.Contains(key) ? Source : Dynamic(key),
+        Source = TryFind(Target,key),
         Mode = BindingMode.OneWay
     };
 
-    private object Dynamic(string key)
+    private object TryFind(ExpandoObject target, string key)
     {
-        var ret = new ExpandoObject();
-        IDictionary<string, object> asDic = ret!;
-        asDic[key] = key;
-        return ret;
+        IDictionary<string, object> asDic = target!;
+        if (!asDic.ContainsKey(key))
+        {
+            asDic[key] = key;
+        }
+        return target;
     }
 }
