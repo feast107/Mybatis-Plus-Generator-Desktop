@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel;
+using System.Dynamic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
 namespace Mybatis_Plus_Generator.Langs;
 
-public class LangProvider : INotifyPropertyChanged
+public class LangProvider : INotifyPropertyChanged 
 {
     internal static LangProvider Instance { get; } = Application.Current.TryFindResource(nameof(Langs)) as LangProvider ?? default!;
 
