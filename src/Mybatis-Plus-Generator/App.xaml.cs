@@ -23,9 +23,5 @@ public partial class App : Application
         Core.Core.Services.AddDefaultService();
         Core.Core.Services.AddViewModels();
         Core.Core.Build();
-        var lang ="en";
-        LangProvider.Culture = new CultureInfo("zh");
-        Application.Current.Dispatcher.Thread.CurrentUICulture = LangProvider.Culture;
-        LangProvider.Culture = new CultureInfo(lang);
     }
 }
