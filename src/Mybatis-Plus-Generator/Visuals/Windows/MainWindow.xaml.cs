@@ -18,7 +18,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        Color.FromRgb(12, 174, 135).SetTheme();
+        Color.FromRgb(12, 174, 165)
+            .SetTheme();
         Loaded += OnLoaded;
     }
 
