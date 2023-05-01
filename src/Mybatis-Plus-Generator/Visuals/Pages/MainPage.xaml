@@ -54,7 +54,7 @@
                     <ComboBox FontSize="16"
                         Width="100"
                         Margin="8,0"
-                        SelectedItem="{Binding Language}"
+                        SelectedItem="{Binding Language,Mode=TwoWay}"
                         ItemsSource="{Binding Cultures}"
                         md:HintAssist.Hint="{ex:Lang Key={x:Static lang:LangKeys.Language}}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}">
