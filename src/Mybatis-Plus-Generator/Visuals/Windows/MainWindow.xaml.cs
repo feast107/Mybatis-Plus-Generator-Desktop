@@ -28,7 +28,7 @@ public partial class MainWindow : Window
         var templateService = Core.Core.Provider.GetRequiredService<ITemplateService>();
         var configureService = Core.Core.Provider.GetRequiredService<IConfigureService>();
         var dc = Core.Core.Provider.GetRequiredService<ConfigPageViewModel>();
-        this.DataContext = dc;
+        DataContext = dc;
         dc.Records = configureService.Records;
         dc.Templates = templateService.AdditionalTemplates;
     }
