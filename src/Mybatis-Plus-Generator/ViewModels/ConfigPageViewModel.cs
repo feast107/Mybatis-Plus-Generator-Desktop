@@ -46,7 +46,7 @@ internal partial class ConfigPageViewModel : ObservableObject
 
     public CultureInfo Language
     {
-        get => language;
+        get => language ??= Cultures[0];
         set
         {
             if (value.EnglishName == Language.EnglishName) return;
@@ -56,7 +56,7 @@ internal partial class ConfigPageViewModel : ObservableObject
         }
     }
 
-    private CultureInfo language = Application.Current.Dispatcher.Thread.CurrentUICulture;
+    private CultureInfo? language;
 
     [RelayCommand]
     private async Task SelectTemplate(TemplateInfo template)
