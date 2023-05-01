@@ -10,5 +10,6 @@ public partial class MainPage : Page
     public MainPage()
     {
         InitializeComponent();
+        Loaded += (o, e) => { };
     }
 }
