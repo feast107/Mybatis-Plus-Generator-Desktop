@@ -23,13 +23,14 @@ public partial class ConfigItemArgInfo
     {
         public bool IsGenerated { get; init; }
         [ObservableProperty] private string? argValue;
+        public required string ArgName { get; init; }
     }
     public ObservableCollection<StringArg>? ArgAsList
     {
         get => ArgMode is ArgModes.List
             ? (ObservableCollection<StringArg>)(ArgValue ??= new ObservableCollection<StringArg>()
             {
-                new ()
+                new() { ArgName = ArgName }
             })
             : null;
         set
@@ -42,7 +43,7 @@ public partial class ConfigItemArgInfo
     [RelayCommand]
     private void AddListArg()
     {
-        ArgAsList?.Add(new StringArg() { IsGenerated = true });
+        ArgAsList?.Add(new StringArg() { IsGenerated = true, ArgName = ArgName });
     }
 
     [RelayCommand]
