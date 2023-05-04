@@ -1,11 +1,9 @@
 ﻿<UserControl x:Class="Mybatis_Plus_Generator.Visuals.Controls.Args.ListArg"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls.Args"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:controls="clr-namespace:Mybatis_Plus_Generator.Visuals.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:abs="clr-namespace:Mybatis_Plus_Generator.Definition.Abstractions;assembly=Mybatis-Plus-Generator.Definition"
              xmlns:ex="clr-namespace:Mybatis_Plus_Generator.Extension"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance abs:ConfigItemArgInfo}"
@@ -27,41 +25,45 @@
     <Grid>
         <ListBox 
             VirtualizingPanel.ScrollUnit="Pixel"
+            PreviewMouseWheel="UIElement_OnPreviewMouseWheel"
             md:ListBoxItemAssist.ShowSelection="False"
             ItemsSource="{Binding  ArgAsList}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,0,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox VerticalAlignment="Top" 
-                                 Margin="0,0,0,16" FontSize="16"
-                                 Text="{Binding ArgValue}"
-                                 md:HintAssist.HelperText="{Binding DataContext.ArgType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                 md:HintAssist.Hint="{ex:Lang Key={Binding DataContext.ArgName, RelativeSource={RelativeSource AncestorType=UserControl}}}"
-                                 Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}"
+                    <Grid 
+                        Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox},Path=ActualWidth}"
+                        >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                                 <!--md:HintAssist.Hint="{ex:Lang Key={Binding DataContext.ArgName, RelativeSource={RelativeSource AncestorType=UserControl}}}"-->
+                            <TextBox  VerticalAlignment="Top" FontSize="16"
+                                 Text="{Binding ArgValue}" Margin="0"
+                                 md:HintAssist.Hint="{ex:Lang Key={Binding ArgName}}" 
+                                 Width="{Binding RelativeSource={RelativeSource AncestorType=Grid},Path=ActualWidth}"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <Grid Grid.Column="1">
-                                <Button  
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button  
                                     Visibility="{Binding IsGenerated,Converter={StaticResource InverseBool2VisibilityCollapsedConverter}}"
                                     Style="{StaticResource RightButtonAdd}"
                                     Command="{Binding DataContext.AddListArgCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                     ToolTip="MaterialDesignFloatingActionMiniLightButton"  >
-                                    <md:PackIcon  Kind="Add"/>
-                                </Button>
-                                <Button 
+                                <md:PackIcon  Kind="Add"/>
+                            </Button>
+                            <Button 
                                     Visibility="{Binding IsGenerated,Converter={StaticResource Bool2VisibilityCollapsedConverter}}"
                                     Style="{StaticResource RightButtonRemove}" 
                                     Command="{Binding DataContext.RemoveListArgCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                     CommandParameter="{Binding .}"
                                     ToolTip="MaterialDesignFloatingActionMiniLightButton" >
-                                    <md:PackIcon  Kind="Remove"/>
-                                </Button>
-                            </Grid>
+                                <md:PackIcon  Kind="Remove"/>
+                            </Button>
                         </Grid>
-                </DataTemplate> 
+                    </Grid>
+                </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
