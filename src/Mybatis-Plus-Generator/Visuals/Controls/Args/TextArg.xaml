@@ -10,8 +10,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <TextBox VerticalAlignment="Top" 
-                 Text="{Binding ArgValue}"
                  Margin="0,0,0,16" FontSize="16"
+                 Text="{Binding ArgValue}"
                  md:HintAssist.HelperText="{Binding ArgType}"
                  md:HintAssist.Hint="{ex:Lang Key={Binding ArgName}}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
