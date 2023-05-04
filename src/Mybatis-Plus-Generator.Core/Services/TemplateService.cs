@@ -3,7 +3,6 @@ using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Definition.Abstractions;
 using System.Collections.ObjectModel;
 using System.Reflection;
-using com.baomidou.mybatisplus.generator.config;
 
 namespace Mybatis_Plus_Generator.Core.Services;
 
