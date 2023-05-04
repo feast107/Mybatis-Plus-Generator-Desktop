@@ -61,7 +61,7 @@ public class LangExtension : MarkupExtension
 
     public object Source { get; set; }
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public override object? ProvideValue(IServiceProvider serviceProvider)
     {
         if (serviceProvider.GetService(typeof(IProvideValueTarget)) is not IProvideValueTarget provideValueTarget)
             return this;
@@ -81,7 +81,10 @@ public class LangExtension : MarkupExtension
             {
                 if (element.DataContext != null)
                 {
-                    return SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext)!
+                    return SetLangBinding(element, 
+                            targetProperty, 
+                            keyBinding.Path, 
+                            element.DataContext)?
                         .ProvideValue(serviceProvider);
                 }
 
@@ -140,17 +143,19 @@ public class LangExtension : MarkupExtension
         DependencyProperty? targetProperty,
         PropertyPath path, object dataContext)
     {
-        if (targetProperty == null) return null;
+        if (targetProperty == null) 
+            return null;
 
         BindingOperations.SetBinding(targetObject, targetProperty, new Binding
         {
             Path = path,
             Source = dataContext,
-            Mode = BindingMode.OneWay
+            Mode = BindingMode.OneWay,
         });
 
         var key = targetObject.GetValue(targetProperty) as string;
-        if (string.IsNullOrEmpty(key)) return null;
+        if (string.IsNullOrEmpty(key)) 
+            return null;
 
         var binding = CreateLangBinding(key);
         BindingOperations.SetBinding(targetObject, targetProperty, binding);
