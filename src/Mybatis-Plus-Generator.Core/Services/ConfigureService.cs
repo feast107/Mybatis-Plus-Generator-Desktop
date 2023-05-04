@@ -33,6 +33,7 @@ internal class ConfigureService<TConfigRecord,TConfigInfo, TConfigItemInfo>
                     return l;
                 })
                 .ToArray();
+
     }
 
     public object Apply(object config, TConfigInfo info)
