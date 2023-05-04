@@ -1,6 +1,4 @@
-﻿using MaterialDesignThemes.Wpf;
-using Microsoft.Extensions.DependencyInjection;
-using Mybatis_Plus_Generator.Core.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Mybatis_Plus_Generator.Core.Interfaces;
 using Mybatis_Plus_Generator.Extension;
 using Mybatis_Plus_Generator.ViewModels;
@@ -15,7 +13,7 @@ namespace Mybatis_Plus_Generator.Visuals.Windows;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow()  
     {
         InitializeComponent();
         Color.FromRgb(12, 174, 165).SetTheme();
