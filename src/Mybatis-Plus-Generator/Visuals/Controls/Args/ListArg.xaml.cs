@@ -24,5 +24,17 @@ namespace Mybatis_Plus_Generator.Visuals.Controls.Args
         {
             InitializeComponent();
         }
+
+        private void UIElement_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Handled) return;
+            e.Handled = true;
+            var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta)
+            {
+                RoutedEvent = MouseWheelEvent,
+                Source = sender
+            };
+            (((Control)sender).Parent as UIElement)?.RaiseEvent(eventArg);
+        }
     }
 }
