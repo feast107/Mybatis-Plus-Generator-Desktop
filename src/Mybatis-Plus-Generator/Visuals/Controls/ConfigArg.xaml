@@ -10,6 +10,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <args:TextArg 
+            Visibility="{Binding ArgMode,Converter={StaticResource ArgTypeConverter},ConverterParameter={x:Static e:ArgModes.None}}"/>
+        <args:TextArg 
             Visibility="{Binding ArgMode,Converter={StaticResource ArgTypeConverter},ConverterParameter={x:Static e:ArgModes.Plain}}"/>
         <args:PasswordArg 
             Visibility="{Binding ArgMode,Converter={StaticResource ArgTypeConverter},ConverterParameter={x:Static e:ArgModes.Password}}"/>
