@@ -23,7 +23,13 @@ public partial class ConfigItemArgInfo
     {
         public bool IsGenerated { get; init; }
         [ObservableProperty] private string? argValue;
-        public required string ArgName { get; init; }
+
+        public required string ArgName
+        {
+            get => argName!;
+            init => argName = value.Replace("List","");
+        }
+        private readonly string? argName;
     }
     public ObservableCollection<StringArg>? ArgAsList
     {
@@ -96,14 +102,14 @@ public partial class ConfigItemArgInfo : ObservableObject
 
     public ArgModes ArgMode => this switch
     {
-        { ArgType.FullName: $"{nameof(System)}.{nameof(String)}" } => IsPassword 
-            ? ArgModes.Password 
+        { ArgType.FullName: $"{nameof(System)}.{nameof(String)}" } => IsPassword
+            ? ArgModes.Password
             : ArgModes.Plain,
         { ArgType.IsInterface : true } => ArgType.FullName
-            is not "java.util.List"
-            and not "java.util.Map"
-            ? ArgModes.Interface
-            : ArgModes.List,
+            is "java.util.List" or "java.util.Map"
+            ? ArgModes.List
+            : ArgModes.Interface,
+        { ArgType: { IsInterface: false, FullName: "System.String[]" } } => ArgModes.List,
         _ => ArgModes.None
     };
 
