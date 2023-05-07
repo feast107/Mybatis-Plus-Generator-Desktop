@@ -9,14 +9,14 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Mybatis_Plus_Generator.Definition.Abstractions;
 
-#region 用 string 读写
+#region 用 String 读写
 public partial class ConfigItemArgInfo
 {
     public bool IsPassword => ArgName == "password";
 }
 #endregion
 
-#region 用 ObservableCollection 读写
+#region 用 List 读写
 public partial class ConfigItemArgInfo
 {
     public partial class StringArg : ObservableObject
@@ -64,6 +64,23 @@ public partial class ConfigItemArgInfo
 public partial class ConfigItemArgInfo
 {
     [ObservableProperty] private ObservableCollection<Type>? candidates;
+
+    public object? ArgAsType
+    {
+        get => argAsType;
+        set
+        {
+            if (value is not Type type)
+            {
+                argAsType = null;
+                ArgValue = null;
+            }
+            else ArgValue = Activator.CreateInstance(type);
+            OnPropertyChanged();
+        }
+    }
+
+    private Type? argAsType;
 }
 #endregion
 
@@ -82,10 +99,13 @@ public partial class ConfigItemArgInfo : ObservableObject
                             Candidates = Assembly
                                 .GetAssembly(ArgType)
                                 .ExportedTypes
+                                .Where(x => x.IsClass 
+                                            && !x.IsAbstract 
+                                            && ArgType.IsAssignableFrom(x)
+                                            && x.GetConstructors().Any(c=>c.GetParameters().Length == 0))
                                 .Aggregate(new ObservableCollection<Type>(),
                                     (o, c) =>
                                     {
-                                        if (!c.IsClass || !ArgType.IsAssignableFrom(c)) return o;
                                         o.Add(c);
                                         return o;
                                     });
@@ -100,16 +120,16 @@ public partial class ConfigItemArgInfo : ObservableObject
     [ObservableProperty] private Type argType = null!;
     [ObservableProperty] private string argName = string.Empty;
 
-    public ArgModes ArgMode => this switch
+    public ArgModes ArgMode => ArgType switch
     {
-        { ArgType.FullName: $"{nameof(System)}.{nameof(String)}" } => IsPassword
+        { FullName: $"{nameof(System)}.{nameof(String)}[]", IsInterface: false } => ArgModes.List,
+        { FullName: $"{nameof(System)}.{nameof(String)}" } => IsPassword
             ? ArgModes.Password
             : ArgModes.Plain,
-        { ArgType.IsInterface : true } => ArgType.FullName
+        { IsInterface: true } => ArgType.FullName
             is "java.util.List" or "java.util.Map"
             ? ArgModes.List
             : ArgModes.Interface,
-        { ArgType: { IsInterface: false, FullName: "System.String[]" } } => ArgModes.List,
         _ => ArgModes.None
     };
 
