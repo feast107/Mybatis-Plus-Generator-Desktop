@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel;
-using System.Dynamic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
 namespace Mybatis_Plus_Generator.Langs;
 
-public class LangProvider : INotifyPropertyChanged 
+public class LangProvider : INotifyPropertyChanged
 {
     internal static LangProvider Instance { get; } = Application.Current.TryFindResource(nameof(Langs)) as LangProvider ?? default!;
 
@@ -55,6 +54,7 @@ public class LangProvider : INotifyPropertyChanged
 		OnPropertyChanged(nameof(Builder));
 		OnPropertyChanged(nameof(Cancel));
 		OnPropertyChanged(nameof(Can_not_delete_fixed_config));
+		OnPropertyChanged(nameof(Chinese_(China)));
 		OnPropertyChanged(nameof(commentDate));
 		OnPropertyChanged(nameof(Config_name_exists));
 		OnPropertyChanged(nameof(ConfigName));
@@ -75,6 +75,7 @@ public class LangProvider : INotifyPropertyChanged
 		OnPropertyChanged(nameof(enableSkipView));
 		OnPropertyChanged(nameof(enableSpringdoc));
 		OnPropertyChanged(nameof(enableSwagger));
+		OnPropertyChanged(nameof(English_(United_States)));
 		OnPropertyChanged(nameof(entity));
 		OnPropertyChanged(nameof(entityTemplate));
 		OnPropertyChanged(nameof(fieldPrefix));
@@ -179,6 +180,11 @@ public class LangProvider : INotifyPropertyChanged
 	public string Can_not_delete_fixed_config => Lang.Can_not_delete_fixed_config;
 
     /// <summary>
+    ///   Chinese_(China)
+    /// </summary>
+	public string Chinese_(China) => Lang.Chinese_(China);
+
+    /// <summary>
     ///   commentDate
     /// </summary>
 	public string commentDate => Lang.commentDate;
@@ -277,6 +283,11 @@ public class LangProvider : INotifyPropertyChanged
     ///   enableSwagger
     /// </summary>
 	public string enableSwagger => Lang.enableSwagger;
+
+    /// <summary>
+    ///   English_(United_States)
+    /// </summary>
+	public string English_(United_States) => Lang.English_(United_States);
 
     /// <summary>
     ///   entity
@@ -533,6 +544,11 @@ public class LangKeys
 	public static string Can_not_delete_fixed_config = nameof(Can_not_delete_fixed_config);
 
     /// <summary>
+    ///   Chinese_(China)
+    /// </summary>
+	public static string Chinese_(China) = nameof(Chinese_(China));
+
+    /// <summary>
     ///   commentDate
     /// </summary>
 	public static string commentDate = nameof(commentDate);
@@ -631,6 +647,11 @@ public class LangKeys
     ///   enableSwagger
     /// </summary>
 	public static string enableSwagger = nameof(enableSwagger);
+
+    /// <summary>
+    ///   English_(United_States)
+    /// </summary>
+	public static string English_(United_States) = nameof(English_(United_States));
 
     /// <summary>
     ///   entity
