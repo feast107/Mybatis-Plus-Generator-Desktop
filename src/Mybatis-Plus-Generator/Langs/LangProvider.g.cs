@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+#nullable enable
 
 namespace Mybatis_Plus_Generator.Langs;
 
@@ -20,15 +21,11 @@ public class LangProvider : INotifyPropertyChanged
             if (Equals(CultureInfoStr, value.EnglishName)) return;
             Lang.Culture = value;
             CultureInfoStr = value.EnglishName;
-
             Instance.UpdateLangs();
         }
     }
 
-    public static string? GetLang(string key)
-    {
-        return Lang.ResourceManager.GetString(key, Culture);
-    }
+    public static string? GetLang(string key) => Lang.ResourceManager.GetString(key, Culture);
 
     public static void SetLang(DependencyObject dependencyObject, DependencyProperty dependencyProperty, string key)
     {
@@ -54,7 +51,7 @@ public class LangProvider : INotifyPropertyChanged
 		OnPropertyChanged(nameof(Builder));
 		OnPropertyChanged(nameof(Cancel));
 		OnPropertyChanged(nameof(Can_not_delete_fixed_config));
-		OnPropertyChanged(nameof(Chinese_(China)));
+		OnPropertyChanged(nameof(Chinese__China_));
 		OnPropertyChanged(nameof(commentDate));
 		OnPropertyChanged(nameof(Config_name_exists));
 		OnPropertyChanged(nameof(ConfigName));
@@ -75,7 +72,7 @@ public class LangProvider : INotifyPropertyChanged
 		OnPropertyChanged(nameof(enableSkipView));
 		OnPropertyChanged(nameof(enableSpringdoc));
 		OnPropertyChanged(nameof(enableSwagger));
-		OnPropertyChanged(nameof(English_(United_States)));
+		OnPropertyChanged(nameof(English__United_States_));
 		OnPropertyChanged(nameof(entity));
 		OnPropertyChanged(nameof(entityTemplate));
 		OnPropertyChanged(nameof(fieldPrefix));
@@ -115,357 +112,357 @@ public class LangProvider : INotifyPropertyChanged
     }
 
     /// <summary>
-    ///   Accept
+    /// Accept
     /// </summary>
 	public string Accept => Lang.Accept;
 
     /// <summary>
-    ///   addConnectionProperty
+    /// addConnectionProperty
     /// </summary>
 	public string addConnectionProperty => Lang.addConnectionProperty;
 
     /// <summary>
-    ///   addExclude
+    /// addExclude
     /// </summary>
 	public string addExclude => Lang.addExclude;
 
     /// <summary>
-    ///   addFieldPrefix
+    /// addFieldPrefix
     /// </summary>
 	public string addFieldPrefix => Lang.addFieldPrefix;
 
     /// <summary>
-    ///   addFieldSuffix
+    /// addFieldSuffix
     /// </summary>
 	public string addFieldSuffix => Lang.addFieldSuffix;
 
     /// <summary>
-    ///   addInclude
+    /// addInclude
     /// </summary>
 	public string addInclude => Lang.addInclude;
 
     /// <summary>
-    ///   addTablePrefix
+    /// addTablePrefix
     /// </summary>
 	public string addTablePrefix => Lang.addTablePrefix;
 
     /// <summary>
-    ///   addTableSuffix
+    /// addTableSuffix
     /// </summary>
 	public string addTableSuffix => Lang.addTableSuffix;
 
     /// <summary>
-    ///   author
+    /// author
     /// </summary>
 	public string author => Lang.author;
 
     /// <summary>
-    ///   beforeOutputFile
+    /// beforeOutputFile
     /// </summary>
 	public string beforeOutputFile => Lang.beforeOutputFile;
 
     /// <summary>
-    ///   Builder
+    /// Builder
     /// </summary>
 	public string Builder => Lang.Builder;
 
     /// <summary>
-    ///   Cancel
+    /// Cancel
     /// </summary>
 	public string Cancel => Lang.Cancel;
 
     /// <summary>
-    ///   Can_not_delete_fixed_config
+    /// Can_not_delete_fixed_config
     /// </summary>
 	public string Can_not_delete_fixed_config => Lang.Can_not_delete_fixed_config;
 
     /// <summary>
-    ///   Chinese_(China)
+    /// Chinese__China_
     /// </summary>
-	public string Chinese_(China) => Lang.Chinese_(China);
+	public string Chinese__China_ => Lang.Chinese__China_;
 
     /// <summary>
-    ///   commentDate
+    /// commentDate
     /// </summary>
 	public string commentDate => Lang.commentDate;
 
     /// <summary>
-    ///   Config_name_exists
+    /// Config_name_exists
     /// </summary>
 	public string Config_name_exists => Lang.Config_name_exists;
 
     /// <summary>
-    ///   ConfigName
+    /// ConfigName
     /// </summary>
 	public string ConfigName => Lang.ConfigName;
 
     /// <summary>
-    ///   controller
+    /// controller
     /// </summary>
 	public string controller => Lang.controller;
 
     /// <summary>
-    ///   controllerTemplate
+    /// controllerTemplate
     /// </summary>
 	public string controllerTemplate => Lang.controllerTemplate;
 
     /// <summary>
-    ///   customFile
+    /// customFile
     /// </summary>
 	public string customFile => Lang.customFile;
 
     /// <summary>
-    ///   customMap
+    /// customMap
     /// </summary>
 	public string customMap => Lang.customMap;
 
     /// <summary>
-    ///   databaseQueryClass
+    /// databaseQueryClass
     /// </summary>
 	public string databaseQueryClass => Lang.databaseQueryClass;
 
     /// <summary>
-    ///   DataSourceConfig
+    /// DataSourceConfig
     /// </summary>
 	public string DataSourceConfig => Lang.DataSourceConfig;
 
     /// <summary>
-    ///   dateType
+    /// dateType
     /// </summary>
 	public string dateType => Lang.dateType;
 
     /// <summary>
-    ///   dbQuery
+    /// dbQuery
     /// </summary>
 	public string dbQuery => Lang.dbQuery;
 
     /// <summary>
-    ///   disable
+    /// disable
     /// </summary>
 	public string disable => Lang.disable;
 
     /// <summary>
-    ///   disableOpenDir
+    /// disableOpenDir
     /// </summary>
 	public string disableOpenDir => Lang.disableOpenDir;
 
     /// <summary>
-    ///   disableServiceInterface
+    /// disableServiceInterface
     /// </summary>
 	public string disableServiceInterface => Lang.disableServiceInterface;
 
     /// <summary>
-    ///   disableSqlFilter
+    /// disableSqlFilter
     /// </summary>
 	public string disableSqlFilter => Lang.disableSqlFilter;
 
     /// <summary>
-    ///   enableCapitalMode
+    /// enableCapitalMode
     /// </summary>
 	public string enableCapitalMode => Lang.enableCapitalMode;
 
     /// <summary>
-    ///   enableKotlin
+    /// enableKotlin
     /// </summary>
 	public string enableKotlin => Lang.enableKotlin;
 
     /// <summary>
-    ///   enableSkipView
+    /// enableSkipView
     /// </summary>
 	public string enableSkipView => Lang.enableSkipView;
 
     /// <summary>
-    ///   enableSpringdoc
+    /// enableSpringdoc
     /// </summary>
 	public string enableSpringdoc => Lang.enableSpringdoc;
 
     /// <summary>
-    ///   enableSwagger
+    /// enableSwagger
     /// </summary>
 	public string enableSwagger => Lang.enableSwagger;
 
     /// <summary>
-    ///   English_(United_States)
+    /// English__United_States_
     /// </summary>
-	public string English_(United_States) => Lang.English_(United_States);
+	public string English__United_States_ => Lang.English__United_States_;
 
     /// <summary>
-    ///   entity
+    /// entity
     /// </summary>
 	public string entity => Lang.entity;
 
     /// <summary>
-    ///   entityTemplate
+    /// entityTemplate
     /// </summary>
 	public string entityTemplate => Lang.entityTemplate;
 
     /// <summary>
-    ///   fieldPrefix
+    /// fieldPrefix
     /// </summary>
 	public string fieldPrefix => Lang.fieldPrefix;
 
     /// <summary>
-    ///   fieldSuffixList
+    /// fieldSuffixList
     /// </summary>
 	public string fieldSuffixList => Lang.fieldSuffixList;
 
     /// <summary>
-    ///   fileOverride
+    /// fileOverride
     /// </summary>
 	public string fileOverride => Lang.fileOverride;
 
     /// <summary>
-    ///   GlobalConfig
+    /// GlobalConfig
     /// </summary>
 	public string GlobalConfig => Lang.GlobalConfig;
 
     /// <summary>
-    ///   include
+    /// include
     /// </summary>
 	public string include => Lang.include;
 
     /// <summary>
-    ///   InjectionConfig
+    /// InjectionConfig
     /// </summary>
 	public string InjectionConfig => Lang.InjectionConfig;
 
     /// <summary>
-    ///   key
+    /// key
     /// </summary>
 	public string key => Lang.key;
 
     /// <summary>
-    ///   LangComment
+    /// LangComment
     /// </summary>
 	public string LangComment => Lang.LangComment;
 
     /// <summary>
-    ///   Language
+    /// Language
     /// </summary>
 	public string Language => Lang.Language;
 
     /// <summary>
-    ///   mapper
+    /// mapper
     /// </summary>
 	public string mapper => Lang.mapper;
 
     /// <summary>
-    ///   mapperTemplate
+    /// mapperTemplate
     /// </summary>
 	public string mapperTemplate => Lang.mapperTemplate;
 
     /// <summary>
-    ///   moduleName
+    /// moduleName
     /// </summary>
 	public string moduleName => Lang.moduleName;
 
     /// <summary>
-    ///   OK
+    /// OK
     /// </summary>
 	public string OK => Lang.OK;
 
     /// <summary>
-    ///   outputDir
+    /// outputDir
     /// </summary>
 	public string outputDir => Lang.outputDir;
 
     /// <summary>
-    ///   PackageConfig
+    /// PackageConfig
     /// </summary>
 	public string PackageConfig => Lang.PackageConfig;
 
     /// <summary>
-    ///   parent
+    /// parent
     /// </summary>
 	public string parent => Lang.parent;
 
     /// <summary>
-    ///   password
+    /// password
     /// </summary>
 	public string password => Lang.password;
 
     /// <summary>
-    ///   pathInfo
+    /// pathInfo
     /// </summary>
 	public string pathInfo => Lang.pathInfo;
 
     /// <summary>
-    ///   Please_provide_config_name
+    /// Please_provide_config_name
     /// </summary>
 	public string Please_provide_config_name => Lang.Please_provide_config_name;
 
     /// <summary>
-    ///   service
+    /// service
     /// </summary>
 	public string service => Lang.service;
 
     /// <summary>
-    ///   serviceImpl
+    /// serviceImpl
     /// </summary>
 	public string serviceImpl => Lang.serviceImpl;
 
     /// <summary>
-    ///   serviceImplTemplate
+    /// serviceImplTemplate
     /// </summary>
 	public string serviceImplTemplate => Lang.serviceImplTemplate;
 
     /// <summary>
-    ///   serviceTemplate
+    /// serviceTemplate
     /// </summary>
 	public string serviceTemplate => Lang.serviceTemplate;
 
     /// <summary>
-    ///   StrategyConfig
+    /// StrategyConfig
     /// </summary>
 	public string StrategyConfig => Lang.StrategyConfig;
 
     /// <summary>
-    ///   tablePrefixList
+    /// tablePrefixList
     /// </summary>
 	public string tablePrefixList => Lang.tablePrefixList;
 
     /// <summary>
-    ///   tableSuffixList
+    /// tableSuffixList
     /// </summary>
 	public string tableSuffixList => Lang.tableSuffixList;
 
     /// <summary>
-    ///   TemplateConfig
+    /// TemplateConfig
     /// </summary>
 	public string TemplateConfig => Lang.TemplateConfig;
 
     /// <summary>
-    ///   typeConvert
+    /// typeConvert
     /// </summary>
 	public string typeConvert => Lang.typeConvert;
 
     /// <summary>
-    ///   typeConvertHandler
+    /// typeConvertHandler
     /// </summary>
 	public string typeConvertHandler => Lang.typeConvertHandler;
 
     /// <summary>
-    ///   url
+    /// url
     /// </summary>
 	public string url => Lang.url;
 
     /// <summary>
-    ///   username
+    /// username
     /// </summary>
 	public string username => Lang.username;
 
     /// <summary>
-    ///   value
+    /// value
     /// </summary>
 	public string value => Lang.value;
 
     /// <summary>
-    ///   xml
+    /// xml
     /// </summary>
 	public string xml => Lang.xml;
 
     /// <summary>
-    ///   xmlTemplate
+    /// xmlTemplate
     /// </summary>
 	public string xmlTemplate => Lang.xmlTemplate;
 
@@ -479,357 +476,357 @@ public class LangProvider : INotifyPropertyChanged
 public class LangKeys
 {
     /// <summary>
-    ///   Accept
+    /// Accept
     /// </summary>
 	public static string Accept = nameof(Accept);
 
     /// <summary>
-    ///   addConnectionProperty
+    /// addConnectionProperty
     /// </summary>
 	public static string addConnectionProperty = nameof(addConnectionProperty);
 
     /// <summary>
-    ///   addExclude
+    /// addExclude
     /// </summary>
 	public static string addExclude = nameof(addExclude);
 
     /// <summary>
-    ///   addFieldPrefix
+    /// addFieldPrefix
     /// </summary>
 	public static string addFieldPrefix = nameof(addFieldPrefix);
 
     /// <summary>
-    ///   addFieldSuffix
+    /// addFieldSuffix
     /// </summary>
 	public static string addFieldSuffix = nameof(addFieldSuffix);
 
     /// <summary>
-    ///   addInclude
+    /// addInclude
     /// </summary>
 	public static string addInclude = nameof(addInclude);
 
     /// <summary>
-    ///   addTablePrefix
+    /// addTablePrefix
     /// </summary>
 	public static string addTablePrefix = nameof(addTablePrefix);
 
     /// <summary>
-    ///   addTableSuffix
+    /// addTableSuffix
     /// </summary>
 	public static string addTableSuffix = nameof(addTableSuffix);
 
     /// <summary>
-    ///   author
+    /// author
     /// </summary>
 	public static string author = nameof(author);
 
     /// <summary>
-    ///   beforeOutputFile
+    /// beforeOutputFile
     /// </summary>
 	public static string beforeOutputFile = nameof(beforeOutputFile);
 
     /// <summary>
-    ///   Builder
+    /// Builder
     /// </summary>
 	public static string Builder = nameof(Builder);
 
     /// <summary>
-    ///   Cancel
+    /// Cancel
     /// </summary>
 	public static string Cancel = nameof(Cancel);
 
     /// <summary>
-    ///   Can_not_delete_fixed_config
+    /// Can_not_delete_fixed_config
     /// </summary>
 	public static string Can_not_delete_fixed_config = nameof(Can_not_delete_fixed_config);
 
     /// <summary>
-    ///   Chinese_(China)
+    /// Chinese__China_
     /// </summary>
-	public static string Chinese_(China) = nameof(Chinese_(China));
+	public static string Chinese__China_ = nameof(Chinese__China_);
 
     /// <summary>
-    ///   commentDate
+    /// commentDate
     /// </summary>
 	public static string commentDate = nameof(commentDate);
 
     /// <summary>
-    ///   Config_name_exists
+    /// Config_name_exists
     /// </summary>
 	public static string Config_name_exists = nameof(Config_name_exists);
 
     /// <summary>
-    ///   ConfigName
+    /// ConfigName
     /// </summary>
 	public static string ConfigName = nameof(ConfigName);
 
     /// <summary>
-    ///   controller
+    /// controller
     /// </summary>
 	public static string controller = nameof(controller);
 
     /// <summary>
-    ///   controllerTemplate
+    /// controllerTemplate
     /// </summary>
 	public static string controllerTemplate = nameof(controllerTemplate);
 
     /// <summary>
-    ///   customFile
+    /// customFile
     /// </summary>
 	public static string customFile = nameof(customFile);
 
     /// <summary>
-    ///   customMap
+    /// customMap
     /// </summary>
 	public static string customMap = nameof(customMap);
 
     /// <summary>
-    ///   databaseQueryClass
+    /// databaseQueryClass
     /// </summary>
 	public static string databaseQueryClass = nameof(databaseQueryClass);
 
     /// <summary>
-    ///   DataSourceConfig
+    /// DataSourceConfig
     /// </summary>
 	public static string DataSourceConfig = nameof(DataSourceConfig);
 
     /// <summary>
-    ///   dateType
+    /// dateType
     /// </summary>
 	public static string dateType = nameof(dateType);
 
     /// <summary>
-    ///   dbQuery
+    /// dbQuery
     /// </summary>
 	public static string dbQuery = nameof(dbQuery);
 
     /// <summary>
-    ///   disable
+    /// disable
     /// </summary>
 	public static string disable = nameof(disable);
 
     /// <summary>
-    ///   disableOpenDir
+    /// disableOpenDir
     /// </summary>
 	public static string disableOpenDir = nameof(disableOpenDir);
 
     /// <summary>
-    ///   disableServiceInterface
+    /// disableServiceInterface
     /// </summary>
 	public static string disableServiceInterface = nameof(disableServiceInterface);
 
     /// <summary>
-    ///   disableSqlFilter
+    /// disableSqlFilter
     /// </summary>
 	public static string disableSqlFilter = nameof(disableSqlFilter);
 
     /// <summary>
-    ///   enableCapitalMode
+    /// enableCapitalMode
     /// </summary>
 	public static string enableCapitalMode = nameof(enableCapitalMode);
 
     /// <summary>
-    ///   enableKotlin
+    /// enableKotlin
     /// </summary>
 	public static string enableKotlin = nameof(enableKotlin);
 
     /// <summary>
-    ///   enableSkipView
+    /// enableSkipView
     /// </summary>
 	public static string enableSkipView = nameof(enableSkipView);
 
     /// <summary>
-    ///   enableSpringdoc
+    /// enableSpringdoc
     /// </summary>
 	public static string enableSpringdoc = nameof(enableSpringdoc);
 
     /// <summary>
-    ///   enableSwagger
+    /// enableSwagger
     /// </summary>
 	public static string enableSwagger = nameof(enableSwagger);
 
     /// <summary>
-    ///   English_(United_States)
+    /// English__United_States_
     /// </summary>
-	public static string English_(United_States) = nameof(English_(United_States));
+	public static string English__United_States_ = nameof(English__United_States_);
 
     /// <summary>
-    ///   entity
+    /// entity
     /// </summary>
 	public static string entity = nameof(entity);
 
     /// <summary>
-    ///   entityTemplate
+    /// entityTemplate
     /// </summary>
 	public static string entityTemplate = nameof(entityTemplate);
 
     /// <summary>
-    ///   fieldPrefix
+    /// fieldPrefix
     /// </summary>
 	public static string fieldPrefix = nameof(fieldPrefix);
 
     /// <summary>
-    ///   fieldSuffixList
+    /// fieldSuffixList
     /// </summary>
 	public static string fieldSuffixList = nameof(fieldSuffixList);
 
     /// <summary>
-    ///   fileOverride
+    /// fileOverride
     /// </summary>
 	public static string fileOverride = nameof(fileOverride);
 
     /// <summary>
-    ///   GlobalConfig
+    /// GlobalConfig
     /// </summary>
 	public static string GlobalConfig = nameof(GlobalConfig);
 
     /// <summary>
-    ///   include
+    /// include
     /// </summary>
 	public static string include = nameof(include);
 
     /// <summary>
-    ///   InjectionConfig
+    /// InjectionConfig
     /// </summary>
 	public static string InjectionConfig = nameof(InjectionConfig);
 
     /// <summary>
-    ///   key
+    /// key
     /// </summary>
 	public static string key = nameof(key);
 
     /// <summary>
-    ///   LangComment
+    /// LangComment
     /// </summary>
 	public static string LangComment = nameof(LangComment);
 
     /// <summary>
-    ///   Language
+    /// Language
     /// </summary>
 	public static string Language = nameof(Language);
 
     /// <summary>
-    ///   mapper
+    /// mapper
     /// </summary>
 	public static string mapper = nameof(mapper);
 
     /// <summary>
-    ///   mapperTemplate
+    /// mapperTemplate
     /// </summary>
 	public static string mapperTemplate = nameof(mapperTemplate);
 
     /// <summary>
-    ///   moduleName
+    /// moduleName
     /// </summary>
 	public static string moduleName = nameof(moduleName);
 
     /// <summary>
-    ///   OK
+    /// OK
     /// </summary>
 	public static string OK = nameof(OK);
 
     /// <summary>
-    ///   outputDir
+    /// outputDir
     /// </summary>
 	public static string outputDir = nameof(outputDir);
 
     /// <summary>
-    ///   PackageConfig
+    /// PackageConfig
     /// </summary>
 	public static string PackageConfig = nameof(PackageConfig);
 
     /// <summary>
-    ///   parent
+    /// parent
     /// </summary>
 	public static string parent = nameof(parent);
 
     /// <summary>
-    ///   password
+    /// password
     /// </summary>
 	public static string password = nameof(password);
 
     /// <summary>
-    ///   pathInfo
+    /// pathInfo
     /// </summary>
 	public static string pathInfo = nameof(pathInfo);
 
     /// <summary>
-    ///   Please_provide_config_name
+    /// Please_provide_config_name
     /// </summary>
 	public static string Please_provide_config_name = nameof(Please_provide_config_name);
 
     /// <summary>
-    ///   service
+    /// service
     /// </summary>
 	public static string service = nameof(service);
 
     /// <summary>
-    ///   serviceImpl
+    /// serviceImpl
     /// </summary>
 	public static string serviceImpl = nameof(serviceImpl);
 
     /// <summary>
-    ///   serviceImplTemplate
+    /// serviceImplTemplate
     /// </summary>
 	public static string serviceImplTemplate = nameof(serviceImplTemplate);
 
     /// <summary>
-    ///   serviceTemplate
+    /// serviceTemplate
     /// </summary>
 	public static string serviceTemplate = nameof(serviceTemplate);
 
     /// <summary>
-    ///   StrategyConfig
+    /// StrategyConfig
     /// </summary>
 	public static string StrategyConfig = nameof(StrategyConfig);
 
     /// <summary>
-    ///   tablePrefixList
+    /// tablePrefixList
     /// </summary>
 	public static string tablePrefixList = nameof(tablePrefixList);
 
     /// <summary>
-    ///   tableSuffixList
+    /// tableSuffixList
     /// </summary>
 	public static string tableSuffixList = nameof(tableSuffixList);
 
     /// <summary>
-    ///   TemplateConfig
+    /// TemplateConfig
     /// </summary>
 	public static string TemplateConfig = nameof(TemplateConfig);
 
     /// <summary>
-    ///   typeConvert
+    /// typeConvert
     /// </summary>
 	public static string typeConvert = nameof(typeConvert);
 
     /// <summary>
-    ///   typeConvertHandler
+    /// typeConvertHandler
     /// </summary>
 	public static string typeConvertHandler = nameof(typeConvertHandler);
 
     /// <summary>
-    ///   url
+    /// url
     /// </summary>
 	public static string url = nameof(url);
 
     /// <summary>
-    ///   username
+    /// username
     /// </summary>
 	public static string username = nameof(username);
 
     /// <summary>
-    ///   value
+    /// value
     /// </summary>
 	public static string value = nameof(value);
 
     /// <summary>
-    ///   xml
+    /// xml
     /// </summary>
 	public static string xml = nameof(xml);
 
     /// <summary>
-    ///   xmlTemplate
+    /// xmlTemplate
     /// </summary>
 	public static string xmlTemplate = nameof(xmlTemplate);
 

@@ -9,25 +9,31 @@
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
 <#
-    const string ResourceFileName = "Lang.resx";
-    var propertyNameList = XElement.Load(this.Host.ResolvePath(ResourceFileName))
-        .Elements("data")
-        .Select(item => item.Attribute("name")?.Value.Replace(' ','_'))
-        .Where(item => item != null);
+const string resourceFileName = "Lang.resx";
+var propertyNameList = XElement.Load(this.Host.ResolvePath(resourceFileName))
+    .Elements("data")
+    .Select(item => 
+        item.Attribute("name")?
+            .Value
+            .Replace(' ','_')
+            .Replace('(','_')
+            .Replace(')','_'))
+    .Where(item => item != null).ToList();
 
-    var langDic = new Dictionary<string, string>();
-    foreach(var item in propertyNameList)
-    {
-        langDic[item] = 
-        @$"/// <summary>
-    ///   {item}
+var langDic = new Dictionary<string, string>();
+foreach(var item in propertyNameList)
+{
+    langDic[item] = 
+    @$"/// <summary>
+    /// {item}
     /// </summary>";
-    }
+}
 #>
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+#nullable enable
 
 namespace <#=System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("NamespaceHint").ToString()#>;
 
@@ -46,15 +52,11 @@ public class LangProvider : INotifyPropertyChanged
             if (Equals(CultureInfoStr, value.EnglishName)) return;
             Lang.Culture = value;
             CultureInfoStr = value.EnglishName;
-
             Instance.UpdateLangs();
         }
     }
 
-    public static string? GetLang(string key)
-    {
-        return Lang.ResourceManager.GetString(key, Culture);
-    }
+    public static string? GetLang(string key) => Lang.ResourceManager.GetString(key, Culture);
 
     public static void SetLang(DependencyObject dependencyObject, DependencyProperty dependencyProperty, string key)
     {

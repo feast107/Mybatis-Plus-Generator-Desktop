@@ -30,10 +30,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
-    <Compile Update="Langs\LangProvider.cs">
+    <Compile Update="Langs\LangProvider.g.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>LangProvider.tt</DependentUpon>
+      <DependentUpon>LangProvider.g.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -56,9 +56,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Langs\LangProvider.tt">
+    <None Update="Langs\LangProvider.g.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LangProvider.cs</LastGenOutput>
+      <LastGenOutput>LangProvider.g.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
