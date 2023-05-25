@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -13,18 +14,20 @@ public class LangExtension : MarkupExtension
     private readonly DependencyObject proxy;
     private static readonly ExpandoObject Target = new();
 
+    static LangExtension()
+    {
+        var props = typeof(LangProvider).GetProperties();
+        LangProvider.Instance.PropertyChanged += (o, e) =>
+        {
+            if (e.PropertyName == null) return;
+            ((IDictionary<string, object>)Target!)[e.PropertyName] =
+                props.FirstOrDefault(x => x.Name == e.PropertyName)!.GetValue(o)!;
+        };
+    }
+
     public LangExtension()
     {
         proxy = new DependencyObject();
-        Source = LangProvider.Instance;
-        var ps = typeof(LangProvider);
-        LangProvider.Instance.PropertyChanged += (o, e) =>
-        {
-            ((IDictionary<string, object>)Target!)[e.PropertyName!] =
-                typeof(LangProvider)
-                    .GetProperty(e.PropertyName!)!
-                    .GetValue(o)!;
-        };
     }
 
     public LangExtension(string key) : this()
@@ -58,8 +61,6 @@ public class LangExtension : MarkupExtension
     public required IValueConverter Converter { get; set; }
 
     public required object ConverterParameter { get; set; }
-
-    public object Source { get; set; }
 
     public override object? ProvideValue(IServiceProvider serviceProvider)
     {
